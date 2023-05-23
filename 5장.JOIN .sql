@@ -1,32 +1,32 @@
--- 5Àå.JOIN (¿¬»ê)
--- ¿À¶óÅ¬ °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½ºÀÌ´Ù ==> °ü°è : Å×ÀÌºí°ú Å×ÀÌºíÀÌ ¸Î´Â!  
--- (Relation, ¸±·¹ÀÌ¼Ç - µ¥ÀÌÅÍº£ÀÌ½º ¼³°èÇÒ¶§ Å×ÀÌºíÀ» ¸±·¹ÀÌ¼ÇÀÌ¶ó°í ÇÔ)
--- JOIN ¿©·¯ Å×ÀÌºíÀ» ¿¬°áÇÏ¿© (HR: 7°³, ¾÷¹« : n) µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÑ´Ù
--- ex> »ç¿ø Å×ÀÌºí ~ ºÎ¼­ Å×ÀÌºí ¿¬°á : »ç¿øÁ¤º¸¿¡ ºÎ¼­Á¤º¸(ºÎ¼­ÀÌ¸§, ºÎ¼­À§Ä¡ÄÚµå)¸¦ Á¶È¸ÇÒ¶§!
+-- 5ìž¥.JOIN (ì—°ì‚°)
+-- ì˜¤ë¼í´ ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ì´ë‹¤ ==> ê´€ê³„ : í…Œì´ë¸”ê³¼ í…Œì´ë¸”ì´ ë§ºëŠ”!  
+-- (Relation, ë¦´ë ˆì´ì…˜ - ë°ì´í„°ë² ì´ìŠ¤ ì„¤ê³„í• ë•Œ í…Œì´ë¸”ì„ ë¦´ë ˆì´ì…˜ì´ë¼ê³  í•¨)
+-- JOIN ì—¬ëŸ¬ í…Œì´ë¸”ì„ ì—°ê²°í•˜ì—¬ (HR: 7ê°œ, ì—…ë¬´ : n) ë°ì´í„°ë¥¼ ì¡°íšŒí•œë‹¤
+-- ex> ì‚¬ì› í…Œì´ë¸” ~ ë¶€ì„œ í…Œì´ë¸” ì—°ê²° : ì‚¬ì›ì •ë³´ì— ë¶€ì„œì •ë³´(ë¶€ì„œì´ë¦„, ë¶€ì„œìœ„ì¹˜ì½”ë“œ)ë¥¼ ì¡°íšŒí• ë•Œ!
 
 
--- 5.1 Cartesian Product (DecartÀÇ ´Ù¸¥ ¸», Cartesian)
--- JOIN Á¶°Ç : µÑ ÀÌ»óÀÇ Å×ÀÌºíÀÇ °ü°è¸¦ ¸ÎÀ»¶§, ±âÁØÀÌ µÇ´Â ÄÃ·³À» ÁöÁ¤ ==> º¸Åë, WHERE Àý¿¡ ±â¼ú...
--- JOIN Á¶°ÇÀ» ±â¼úÇÏÁö ¾ÊÀ» ¶§ Àß¸øµÈ °á°ú°¡ ¹ß»ýÇÏ´Âµ¥, ÀÌ°É Ä«Å×½Ã¾È °ö(=ÇÕ¼º°ö)ÀÌ¶ó°í ÇÔ.
--- ¿À·ù´Â ¾È³² ==> ¿¹ÃøµÇ´Â µ¥ÀÌÅÍ º¸´Ù ¸¹´Ù¸é, ÀÇ½É!!
--- CROSS JOIN ÀÌ¶ó°íµµ ÇÔ. (Å×ÀÌºíÀÇ µ¥ÀÌÅÍ(=ROW)°¡ Àû´Ù¸é ¹®Á¦x, ¸¹´Ù¸é~ ==> ´ë±â½Ã°£, ¿¬»ê ¿À·¡°É¸®´Â..)
+-- 5.1 Cartesian Product (Decartì˜ ë‹¤ë¥¸ ë§, Cartesian)
+-- JOIN ì¡°ê±´ : ë‘˜ ì´ìƒì˜ í…Œì´ë¸”ì˜ ê´€ê³„ë¥¼ ë§ºì„ë•Œ, ê¸°ì¤€ì´ ë˜ëŠ” ì»¬ëŸ¼ì„ ì§€ì • ==> ë³´í†µ, WHERE ì ˆì— ê¸°ìˆ ...
+-- JOIN ì¡°ê±´ì„ ê¸°ìˆ í•˜ì§€ ì•Šì„ ë•Œ ìž˜ëª»ëœ ê²°ê³¼ê°€ ë°œìƒí•˜ëŠ”ë°, ì´ê±¸ ì¹´í…Œì‹œì•ˆ ê³±(=í•©ì„±ê³±)ì´ë¼ê³  í•¨.
+-- ì˜¤ë¥˜ëŠ” ì•ˆë‚¨ ==> ì˜ˆì¸¡ë˜ëŠ” ë°ì´í„° ë³´ë‹¤ ë§Žë‹¤ë©´, ì˜ì‹¬!!
+-- CROSS JOIN ì´ë¼ê³ ë„ í•¨. (í…Œì´ë¸”ì˜ ë°ì´í„°(=ROW)ê°€ ì ë‹¤ë©´ ë¬¸ì œx, ë§Žë‹¤ë©´~ ==> ëŒ€ê¸°ì‹œê°„, ì—°ì‚° ì˜¤ëž˜ê±¸ë¦¬ëŠ”..)
 
 /*
-SELECT ÄÃ·³¸í1, ÄÃ·³¸í2,....
-FROM    Å×ÀÌºí¸í1, Å×ÀÌºí¸í2, ...
-WHERE   JOIN Á¶°Ç(=ºñ±³)
+SELECT ì»¬ëŸ¼ëª…1, ì»¬ëŸ¼ëª…2,....
+FROM    í…Œì´ë¸”ëª…1, í…Œì´ë¸”ëª…2, ...
+WHERE   JOIN ì¡°ê±´(=ë¹„êµ)
 */
 
-[¿¹Á¦5-1] »ç¿ø Å×ÀÌºí°ú ºÎ¼­ Å×ÀÌºíÀ» ÀÌ¿ëÇØ »ç¿øÀÇ Á¤º¸¸¦ Á¶È¸ÇÏ°íÀÚ ÇÑ´Ù. »ç¹ø, ¼º, ºÎ¼­ ÀÌ¸§À»
-Á¶È¸ÇÏ¶ó!
+[ì˜ˆì œ5-1] ì‚¬ì› í…Œì´ë¸”ê³¼ ë¶€ì„œ í…Œì´ë¸”ì„ ì´ìš©í•´ ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì¡°íšŒí•˜ê³ ìž í•œë‹¤. ì‚¬ë²ˆ, ì„±, ë¶€ì„œ ì´ë¦„ì„
+ì¡°íšŒí•˜ë¼!
 
--- »ç¹ø, ¼º : employees (»ç¿ø Á¤º¸ Å×ÀÌºí : »ç¹ø, ÀÌ¸§, »ç¿ø±Þ¿©, ÀÔ»çÀÏ,..)
--- ºÎ¼­ÀÌ¸§ : departments (ºÎ¼­ Á¤º¸ Å×ÀÌºí : ºÎ¼­ÄÚµå, ºÎ¼­ÀÌ¸§, ºÎ¼­°¡ À§Ä¡ÇÑ Áö¿ªÄÚµå )
+-- ì‚¬ë²ˆ, ì„± : employees (ì‚¬ì› ì •ë³´ í…Œì´ë¸” : ì‚¬ë²ˆ, ì´ë¦„, ì‚¬ì›ê¸‰ì—¬, ìž…ì‚¬ì¼,..)
+-- ë¶€ì„œì´ë¦„ : departments (ë¶€ì„œ ì •ë³´ í…Œì´ë¸” : ë¶€ì„œì½”ë“œ, ë¶€ì„œì´ë¦„, ë¶€ì„œê°€ ìœ„ì¹˜í•œ ì§€ì—­ì½”ë“œ )
 
 
--- »ç¿øÅ×ÀÌºí µ¥ÀÌÅÍ/Çà ¼ö : 107
--- ºÎ¼­Å×ÀÌºí µ¥ÀÌÅÍ/Çà ¼ö : 27
--- Ä«Å×½Ã¾È °ö : 2889 rows ==> 107 * 27
+-- ì‚¬ì›í…Œì´ë¸” ë°ì´í„°/í–‰ ìˆ˜ : 107
+-- ë¶€ì„œí…Œì´ë¸” ë°ì´í„°/í–‰ ìˆ˜ : 27
+-- ì¹´í…Œì‹œì•ˆ ê³± : 2889 rows ==> 107 * 27
 
 SELECT 107 * 27
 FROM    dual;
@@ -34,7 +34,7 @@ FROM    dual;
 
 DESC employees;
 /*
-ÀÌ¸§             ³Î?       À¯Çü           
+ì´ë¦„             ë„?       ìœ í˜•           
 -------------- -------- ------------ 
 EMPLOYEE_ID    NOT NULL NUMBER(6)    
 FIRST_NAME              VARCHAR2(20) 
@@ -51,7 +51,7 @@ DEPARTMENT_ID           NUMBER(4)
 
 DESC departments;
 /*
-ÀÌ¸§              ³Î?       À¯Çü           
+ì´ë¦„              ë„?       ìœ í˜•           
 --------------- -------- ------------ 
 DEPARTMENT_ID   NOT NULL NUMBER(4)    
 DEPARTMENT_NAME NOT NULL VARCHAR2(30) 
@@ -62,75 +62,75 @@ LOCATION_ID              NUMBER(4)
 
 
 
--- 5.2 EQUI JOIN : µ¿µî¿¬»êÀÚ(=)¸¦ »ç¿ëÇØ JOIN ¿¬»ê(=µ¿µî Á¶ÀÎ)
--- µÎ Å×ÀÌºíÀÇ °øÅë ÄÃ·³ : department_id (manager_id : ºÎ¼­Å×ÀÌºíÀÇ ½Äº°ÀÚx)
--- ÀüÃ¼ »ç¿øÀº 107¸í, Á¶È¸µÈ °á°ú 106°Ç <---> 1¸íÀÇ ´©¶ô!!
--- ´©¶ôµÈ µ¥ÀÌÅÍ Çà±îÁö Æ÷ÇÔÇØ¼­ °á°ú¸¦ ¹Ý¿µ ==> Á¦´ë·ÎµÈ °á°ú(ÀüÃ¼ »ç¿ø±âÁØ) ==> OUTER JOIN Ã³¸®!
--- ºñ±³µÇ´Â °³³äÀ¸·Î INNER JOIN ÀÌ¶ó°íµµ ÇÒ ¼ö ÀÖÀ½.
+-- 5.2 EQUI JOIN : ë™ë“±ì—°ì‚°ìž(=)ë¥¼ ì‚¬ìš©í•´ JOIN ì—°ì‚°(=ë™ë“± ì¡°ì¸)
+-- ë‘ í…Œì´ë¸”ì˜ ê³µí†µ ì»¬ëŸ¼ : department_id (manager_id : ë¶€ì„œí…Œì´ë¸”ì˜ ì‹ë³„ìžx)
+-- ì „ì²´ ì‚¬ì›ì€ 107ëª…, ì¡°íšŒëœ ê²°ê³¼ 106ê±´ <---> 1ëª…ì˜ ëˆ„ë½!!
+-- ëˆ„ë½ëœ ë°ì´í„° í–‰ê¹Œì§€ í¬í•¨í•´ì„œ ê²°ê³¼ë¥¼ ë°˜ì˜ ==> ì œëŒ€ë¡œëœ ê²°ê³¼(ì „ì²´ ì‚¬ì›ê¸°ì¤€) ==> OUTER JOIN ì²˜ë¦¬!
+-- ë¹„êµë˜ëŠ” ê°œë…ìœ¼ë¡œ INNER JOIN ì´ë¼ê³ ë„ í•  ìˆ˜ ìžˆìŒ.
 
--- ¡ØÅ×ÀÌºíÀ» ÀÌ¿ëÇÑ JOIN ==> ¾î´À Å×ÀÌºí¿¡ ¾î¶² ÄÃ·³ÀÎÁö¸¦ ¸í½Ã!
+-- â€»í…Œì´ë¸”ì„ ì´ìš©í•œ JOIN ==> ì–´ëŠ í…Œì´ë¸”ì— ì–´ë–¤ ì»¬ëŸ¼ì¸ì§€ë¥¼ ëª…ì‹œ!
 
 
-[¿¹Á¦ 5-2]
-SELECT  e.employee_id, e.last_name,  -- ÁÖµÈ ³»¿ëÀ» Á¶È¸ÇÏ·Á´Â Å×ÀÌºíÀÇ ÄÃ·³
-        d.department_name -- ºÎ°¡ÀûÀÎ Á¤º¸
+[ì˜ˆì œ 5-2]
+SELECT  e.employee_id, e.last_name,  -- ì£¼ëœ ë‚´ìš©ì„ ì¡°íšŒí•˜ë ¤ëŠ” í…Œì´ë¸”ì˜ ì»¬ëŸ¼
+        d.department_name -- ë¶€ê°€ì ì¸ ì •ë³´
 FROM    employees e , departments d
 WHERE   e.department_id = d.department_id;
--- ORA-00918: ¿­ÀÇ Á¤ÀÇ°¡ ¾Ö¸ÅÇÕ´Ï´Ù
+-- ORA-00918: ì—´ì˜ ì •ì˜ê°€ ì• ë§¤í•©ë‹ˆë‹¤
 
-[¿¹Á¦5-3] Å×ÀÌºíÀÇ Alias¸¦ Àû¿ë~
+[ì˜ˆì œ5-3] í…Œì´ë¸”ì˜ Aliasë¥¼ ì ìš©~
 
-SELECT  e.employee_id, e.last_name,  -- ÁÖµÈ ³»¿ëÀ» Á¶È¸ÇÏ·Á´Â Å×ÀÌºíÀÇ ÄÃ·³
-        d.department_name -- ºÎ°¡ÀûÀÎ Á¤º¸
+SELECT  e.employee_id, e.last_name,  -- ì£¼ëœ ë‚´ìš©ì„ ì¡°íšŒí•˜ë ¤ëŠ” í…Œì´ë¸”ì˜ ì»¬ëŸ¼
+        d.department_name -- ë¶€ê°€ì ì¸ ì •ë³´
 FROM    employees , departments
 WHERE   e.department_id = d.department_id;
 
 
-[¿¹Á¦5-4] (»ç¿øÅ×ÀÌºí, ¾÷¹«Å×ÀÌºíÀ» ÀÌ¿ëÇØ) »ç¹ø, ÀÌ¸§, ¾÷¹«ÄÚµå, ¾÷¹«Á¦¸ñ Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
+[ì˜ˆì œ5-4] (ì‚¬ì›í…Œì´ë¸”, ì—…ë¬´í…Œì´ë¸”ì„ ì´ìš©í•´) ì‚¬ë²ˆ, ì´ë¦„, ì—…ë¬´ì½”ë“œ, ì—…ë¬´ì œëª© ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
 DESC jobs;
 
 SELECT  e.employee_id, e.first_name||' '||e.last_name name, e.job_id,
         j.job_title
-FROM    employees e, jobs j      -- Ä«Å×½Ã¾È °ö : 2,033  rows
+FROM    employees e, jobs j      -- ì¹´í…Œì‹œì•ˆ ê³± : 2,033  rows
 WHERE   e.job_id = j.job_id
-ORDER BY 1; -- 107 rows    vs   »ç¿øÁ¤º¸+ºÎ¼­ÀÌ¸§ : 106 (1¸íÀÌ ºÎ¼­ÄÚµå°¡ NULL ÀÌ¾î¼­..)
+ORDER BY 1; -- 107 rows    vs   ì‚¬ì›ì •ë³´+ë¶€ì„œì´ë¦„ : 106 (1ëª…ì´ ë¶€ì„œì½”ë“œê°€ NULL ì´ì–´ì„œ..)
 
--- 1) »ç¿ø ~ ºÎ¼­ : Á¶ÀÎÁ¶°Ç 1°³
--- 2) »ç¿ø ~ ¾÷¹« : Á¶ÀÎÁ¶°Ç 1°³
--- 3) »ç¿ø ~ ºÎ¼­ ~ ¾÷¹« ~ µµ½Ã ~ ³ª¶ó(±¹°¡) ~ ´ë·ú
---  ===> JOIN ÇÏ´Â Å×ÀÌºíÀÇ °¹¼ö - 1 : Á¶ÀÎÁ¶°ÇÀÇ °¹¼ö
+-- 1) ì‚¬ì› ~ ë¶€ì„œ : ì¡°ì¸ì¡°ê±´ 1ê°œ
+-- 2) ì‚¬ì› ~ ì—…ë¬´ : ì¡°ì¸ì¡°ê±´ 1ê°œ
+-- 3) ì‚¬ì› ~ ë¶€ì„œ ~ ì—…ë¬´ ~ ë„ì‹œ ~ ë‚˜ë¼(êµ­ê°€) ~ ëŒ€ë¥™
+--  ===> JOIN í•˜ëŠ” í…Œì´ë¸”ì˜ ê°¯ìˆ˜ - 1 : ì¡°ì¸ì¡°ê±´ì˜ ê°¯ìˆ˜
 
--- JOIN ÇÏ´Â ´ë»ó Å×ÀÌºíÀÌ Ãß°¡µÇ¸é, JOIN Á¶°ÇÀ» Ãß°¡ÇÑ´Ù.
+-- JOIN í•˜ëŠ” ëŒ€ìƒ í…Œì´ë¸”ì´ ì¶”ê°€ë˜ë©´, JOIN ì¡°ê±´ì„ ì¶”ê°€í•œë‹¤.
 
-[¿¹Á¦5-5] (»ç¿ø Å×ÀÌºí, ºÎ¼­ Å×ÀÌºí, ¾÷¹« Å×ÀÌºíÀ» ÀÌ¿ëÇØ) »ç¹ø, ÀÌ¸§, ºÎ¼­¸í, ¾÷¹«Á¦¸ñ Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
+[ì˜ˆì œ5-5] (ì‚¬ì› í…Œì´ë¸”, ë¶€ì„œ í…Œì´ë¸”, ì—…ë¬´ í…Œì´ë¸”ì„ ì´ìš©í•´) ì‚¬ë²ˆ, ì´ë¦„, ë¶€ì„œëª…, ì—…ë¬´ì œëª© ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
 -- employees, departments, jobs
--- »ç¿øÁ¤º¸,  ºÎ¼­Á¤º¸,  ¾÷¹«Á¤º¸
+-- ì‚¬ì›ì •ë³´,  ë¶€ì„œì •ë³´,  ì—…ë¬´ì •ë³´
 --    department_id
 
-SELECT  e.employee_id AS »ç¹ø, e.first_name||' '||e.last_name name,
+SELECT  e.employee_id AS ì‚¬ë²ˆ, e.first_name||' '||e.last_name name,
         d.department_name,
         j.job_title
 FROM    employees e, departments d, jobs j
-WHERE   e.department_id = d.department_id --1¸íÀÌ ºÎ¼­ÄÚµå x
+WHERE   e.department_id = d.department_id --1ëª…ì´ ë¶€ì„œì½”ë“œ x
 AND     e.job_id = j.job_id
 ORDER BY 1;
 
--- WHERE Á¶°ÇÀý¿¡ JOIN Á¶°Ç°ú ÀÏ¹Ý Á¶°ÇÀ» ÇÔ²² »ç¿ëÇÑ´Ù.
-[¿¹Á¦5-6] »ç¹øÀÌ 101¹øÀÎ »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ºÎ¼­¸í, ¾÷¹«Á¦¸ñ Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
--- »ç¹ø, ÀÌ¸§ : employees --> e , emp ...
--- ºÎ¼­¸í : departments  --> d , dept ...
--- ¾÷¹«Á¦¸ñ : jobs       --> j , job ....
--- ¡Ø Å×ÀÌºíÀÇ °¹¼ö¿Í JOIN Á¶°ÇÀÇ °ü°è : Å×ÀÌºí °¹¼ö - 1 (JOINÁ¶°ÇÀÇ °¹¼ö)
+-- WHERE ì¡°ê±´ì ˆì— JOIN ì¡°ê±´ê³¼ ì¼ë°˜ ì¡°ê±´ì„ í•¨ê»˜ ì‚¬ìš©í•œë‹¤.
+[ì˜ˆì œ5-6] ì‚¬ë²ˆì´ 101ë²ˆì¸ ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ë¶€ì„œëª…, ì—…ë¬´ì œëª© ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
+-- ì‚¬ë²ˆ, ì´ë¦„ : employees --> e , emp ...
+-- ë¶€ì„œëª… : departments  --> d , dept ...
+-- ì—…ë¬´ì œëª© : jobs       --> j , job ....
+-- â€» í…Œì´ë¸”ì˜ ê°¯ìˆ˜ì™€ JOIN ì¡°ê±´ì˜ ê´€ê³„ : í…Œì´ë¸” ê°¯ìˆ˜ - 1 (JOINì¡°ê±´ì˜ ê°¯ìˆ˜)
 
 SELECT  e.employee_id, e.first_name,
         d.department_name,
         j.job_title
 FROM    employees e, departments d, jobs j
-WHERE   e.department_id = d.department_id -- ºÎ¼­ÄÚµå°¡ ¾ø´Â »ç¶÷ 1¸í
+WHERE   e.department_id = d.department_id -- ë¶€ì„œì½”ë“œê°€ ì—†ëŠ” ì‚¬ëžŒ 1ëª…
 AND     e.job_id = j.job_id
 AND     e.employee_id = 101; 
--- »ç¹ø : ½Äº°ÀÚ(PK, Primary Key / NULL Çã¿ëµÇÁö¾Ê°í, Áßº¹µÇÁö ¾Ê´Â À¯ÀÏÇÑ °ª)
--- ¡Ø Á¦¾àÁ¶°Ç(constraint) : µ¥ÀÌÅÍ ÀÔ·ÂÀÇ ½Ç¼ö/»èÁ¦/¼öÁ¤ ¸·±âÀ§ÇÑ Á¶Ä¡
+-- ì‚¬ë²ˆ : ì‹ë³„ìž(PK, Primary Key / NULL í—ˆìš©ë˜ì§€ì•Šê³ , ì¤‘ë³µë˜ì§€ ì•ŠëŠ” ìœ ì¼í•œ ê°’)
+-- â€» ì œì•½ì¡°ê±´(constraint) : ë°ì´í„° ìž…ë ¥ì˜ ì‹¤ìˆ˜/ì‚­ì œ/ìˆ˜ì • ë§‰ê¸°ìœ„í•œ ì¡°ì¹˜
 
 
 
@@ -142,47 +142,47 @@ AND     e.employee_id = 101;
 
 
 
--- 5.3 NON-EQUI JOIN               VS      EQUI JOIN (°³³ä»ó INNER JOIN vs OUTER JOIN)
---     ºñ±³¿¬»êÀÚ(>, >=, <, <=)            µ¿µî¿¬»êÀÚ(=)  
+-- 5.3 NON-EQUI JOIN               VS      EQUI JOIN (ê°œë…ìƒ INNER JOIN vs OUTER JOIN)
+--     ë¹„êµì—°ì‚°ìž(>, >=, <, <=)            ë™ë“±ì—°ì‚°ìž(=)  
 --     BETWEEN
 --     IN
--- ¡Ø NO~ EQUI :  µ¿µî¿¬»êÀÚ ÀÌ¿ÜÀÇ ¿¬»êÀÚ¸¦ »ç¿ëÇÑ JOIN ¿¬»ê
--- ¡Ø JOIN ÇÏ´Â ÄÃ·³ÀÌ ÀÏÄ¡ÇÏÁö ¾Ê°Ô »ç¿ëÇÏ´Â JOIN Á¶°ÇÀ¸·Î < °ÅÀÇ »ç¿ëÇÏÁö ¾Ê´Â´Ù >
--- ¾÷¹«¿¡¼­´Â?? ==> ÇÏ³ªÀÇ µ¥ÀÌÅÍ¶óµµ ³õÄ¡Áö ¾Ê°Ô OUTER JOINÀ» ÈÎ¾À ¸¹ÀÌ »ç¿ëÇÑ´Ù.
+-- â€» NO~ EQUI :  ë™ë“±ì—°ì‚°ìž ì´ì™¸ì˜ ì—°ì‚°ìžë¥¼ ì‚¬ìš©í•œ JOIN ì—°ì‚°
+-- â€» JOIN í•˜ëŠ” ì»¬ëŸ¼ì´ ì¼ì¹˜í•˜ì§€ ì•Šê²Œ ì‚¬ìš©í•˜ëŠ” JOIN ì¡°ê±´ìœ¼ë¡œ < ê±°ì˜ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤ >
+-- ì—…ë¬´ì—ì„œëŠ”?? ==> í•˜ë‚˜ì˜ ë°ì´í„°ë¼ë„ ë†“ì¹˜ì§€ ì•Šê²Œ OUTER JOINì„ í›¨ì”¬ ë§Žì´ ì‚¬ìš©í•œë‹¤.
 
-[¿¹Á¦5-7] ±Þ¿©°¡ ¾÷¹« »óÇÏÇÑ ¹üÀ§ ³»¿¡ ÀÖ´Â 10¹ø ºÎ¼­¿øÀÇ »ç¹ø, ÀÌ¸§, ±Þ¿©, ¾÷¹«Á¦¸ñÀ» Á¶È¸ÇÑ´Ù.
--- »ç¿øÀÇ Á¤º¸ : employees [»ç¹ø, ÀÌ¸§, ±Þ¿©]
--- ¾÷¹«Á¤º¸ : jobs [¾÷¹«Á¦¸ñ]
+[ì˜ˆì œ5-7] ê¸‰ì—¬ê°€ ì—…ë¬´ ìƒí•˜í•œ ë²”ìœ„ ë‚´ì— ìžˆëŠ” 10ë²ˆ ë¶€ì„œì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ê¸‰ì—¬, ì—…ë¬´ì œëª©ì„ ì¡°íšŒí•œë‹¤.
+-- ì‚¬ì›ì˜ ì •ë³´ : employees [ì‚¬ë²ˆ, ì´ë¦„, ê¸‰ì—¬]
+-- ì—…ë¬´ì •ë³´ : jobs [ì—…ë¬´ì œëª©]
 /*
 SELECT  e.employee_id, e.first_name, e.salary,
         j.job_title
-FROM    employees e, jobs j -- Ä«Å×½Ã¾È °ö : JOIN Á¶°ÇÀ» ±â¼úÇÏÁö ¾Ê¾ÒÀ»¶§, °á°úÇàÀÌ ÃÊ°úµÇ¾î ³ªÅ¸³²
+FROM    employees e, jobs j -- ì¹´í…Œì‹œì•ˆ ê³± : JOIN ì¡°ê±´ì„ ê¸°ìˆ í•˜ì§€ ì•Šì•˜ì„ë•Œ, ê²°ê³¼í–‰ì´ ì´ˆê³¼ë˜ì–´ ë‚˜íƒ€ë‚¨
 WHERE   e.job_id = j.job_id
 AND     e.salary >= j.min_salary
 AND     e.salary <= j.max_salary
-AND     e.department_id = 50; -- 10¹ø ºÎ¼­¿ø 1¸í
+AND     e.department_id = 50; -- 10ë²ˆ ë¶€ì„œì› 1ëª…
 */
 
 SELECT  e.employee_id, e.first_name, e.salary,
         j.job_title
-FROM    employees e, jobs j -- Ä«Å×½Ã¾È °ö : JOIN Á¶°ÇÀ» ±â¼úÇÏÁö ¾Ê¾ÒÀ»¶§, °á°úÇàÀÌ ÃÊ°úµÇ¾î ³ªÅ¸³²
-WHERE   e.salary BETWEEN j.min_salary AND j.max_salary -- Á¶ÀÎÁ¶°ÇÀý¿¡ = ¾Æ´Ñ ºñ±³¿¬»êÀÚ/BETWEEN ¿¬»êÀÚ/IN ¿¬»êÀÚ
+FROM    employees e, jobs j -- ì¹´í…Œì‹œì•ˆ ê³± : JOIN ì¡°ê±´ì„ ê¸°ìˆ í•˜ì§€ ì•Šì•˜ì„ë•Œ, ê²°ê³¼í–‰ì´ ì´ˆê³¼ë˜ì–´ ë‚˜íƒ€ë‚¨
+WHERE   e.salary BETWEEN j.min_salary AND j.max_salary -- ì¡°ì¸ì¡°ê±´ì ˆì— = ì•„ë‹Œ ë¹„êµì—°ì‚°ìž/BETWEEN ì—°ì‚°ìž/IN ì—°ì‚°ìž
 AND     e.job_id = j.job_id
 AND     e.department_id = 50;
 
--- ºÎ¼­º° »ç¿ø¼ö
+-- ë¶€ì„œë³„ ì‚¬ì›ìˆ˜
 SELECT department_id, COUNT(*) AS cnt
 FROM    employees
 GROUP BY department_id
 ORDER BY 1;
 
 
--- ±Þ¿©ÀÇ ÃÖ°í, ÃÖÀú¼± : »ó,ÇÏÇÑ ¹üÀ§
--- ¾÷¹« »óÇÏÇÑ ¹üÀ§ ??
--- ¾÷¹« ==> ¾÷¹« Å×ÀÌºí (JOBS)
+-- ê¸‰ì—¬ì˜ ìµœê³ , ìµœì €ì„  : ìƒ,í•˜í•œ ë²”ìœ„
+-- ì—…ë¬´ ìƒí•˜í•œ ë²”ìœ„ ??
+-- ì—…ë¬´ ==> ì—…ë¬´ í…Œì´ë¸” (JOBS)
 DESC jobs;
 /*
-ÀÌ¸§         ³Î?       À¯Çü           
+ì´ë¦„         ë„?       ìœ í˜•           
 ---------- -------- ------------ 
 JOB_ID     NOT NULL VARCHAR2(10) 
 JOB_TITLE  NOT NULL VARCHAR2(35) 
@@ -191,45 +191,45 @@ MAX_SALARY          NUMBER(6)
 */
 
 
--- 5.4 OUTER JOIN : EQUI JOIN Äõ¸®¹®Àº JOIN ÇÏ´Â Å×ÀÌºí°£ °øÅëÀ¸·Î ¸¸Á·µÇ´Â °ªÀ» 
--- °¡Áø °æ¿ìÀÇ °á°ú¸¸À» ¹ÝÈ¯ÇÑ´Ù. ÇÏÁö¸¸, OUTER JOINÀº ¸¸Á·µÇ´Â °ªÀÌ ¾ø´Â °æ¿ìÀÇ °á°ú±îÁö(?)
--- ¹ÝÈ¯ÇÑ´Ù.
+-- 5.4 OUTER JOIN : EQUI JOIN ì¿¼ë¦¬ë¬¸ì€ JOIN í•˜ëŠ” í…Œì´ë¸”ê°„ ê³µí†µìœ¼ë¡œ ë§Œì¡±ë˜ëŠ” ê°’ì„ 
+-- ê°€ì§„ ê²½ìš°ì˜ ê²°ê³¼ë§Œì„ ë°˜í™˜í•œë‹¤. í•˜ì§€ë§Œ, OUTER JOINì€ ë§Œì¡±ë˜ëŠ” ê°’ì´ ì—†ëŠ” ê²½ìš°ì˜ ê²°ê³¼ê¹Œì§€(?)
+-- ë°˜í™˜í•œë‹¤.
 
--- ¡Ø ¸¸Á·µÇ´Â °ªÀÌ ¾ø´Â Å×ÀÌºí ÄÃ·³¸í¿¡ (+) ±âÈ£¸¦ Ç¥½ÃÇÑ´Ù.
--- ±âÁØÅ×ÀÌºíÀÇ ¹Ý´ëÆí¿¡ (+) Ç¥½Ã!!
+-- â€» ë§Œì¡±ë˜ëŠ” ê°’ì´ ì—†ëŠ” í…Œì´ë¸” ì»¬ëŸ¼ëª…ì— (+) ê¸°í˜¸ë¥¼ í‘œì‹œí•œë‹¤.
+-- ê¸°ì¤€í…Œì´ë¸”ì˜ ë°˜ëŒ€íŽ¸ì— (+) í‘œì‹œ!!
 
-[¿¹Á¦5-8] ¸ðµç »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ±Þ¿©, ºÎ¼­ÄÚµå, ºÎ¼­¸í Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
--- department_id°¡ NULLÀÎ »ç¿ø 1¸íÀÇ Á¤º¸ ´©¶ôµÇ´Â °á°ú : EQUI JOIN ¿¬»ê
--- »ç¿øÁ¤º¸ : »ç¹ø, ÀÌ¸§, ±Þ¿©, ºÎ¼­ÄÚµå (employees)
--- ºÎ¼­Á¤º¸ : ºÎ¼­¸í (departments)
+[ì˜ˆì œ5-8] ëª¨ë“  ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ê¸‰ì—¬, ë¶€ì„œì½”ë“œ, ë¶€ì„œëª… ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
+-- department_idê°€ NULLì¸ ì‚¬ì› 1ëª…ì˜ ì •ë³´ ëˆ„ë½ë˜ëŠ” ê²°ê³¼ : EQUI JOIN ì—°ì‚°
+-- ì‚¬ì›ì •ë³´ : ì‚¬ë²ˆ, ì´ë¦„, ê¸‰ì—¬, ë¶€ì„œì½”ë“œ (employees)
+-- ë¶€ì„œì •ë³´ : ë¶€ì„œëª… (departments)
 SELECT  e.employee_id AS empno, e.first_name AS ename, e.salary AS esal,
         d.department_name AS dname
 FROM    employees e, departments d
-WHERE   e.department_id = d.department_id(+)  -- ORA-01468: outer-joinµÈ Å×ÀÌºíÀº 1°³¸¸ ÁöÁ¤ÇÒ ¼ö ÀÖ½À´Ï´Ù
+WHERE   e.department_id = d.department_id(+)  -- ORA-01468: outer-joinëœ í…Œì´ë¸”ì€ 1ê°œë§Œ ì§€ì •í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤
 ORDER BY 1;
 
 
-[¿¹Á¦5-9] ¸ðµç »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ±Þ¿©, ºÎ¼­ÄÚµå, ºÎ¼­¸í, À§Ä¡ÄÚµå, µµ½ÃÀÌ¸§ Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
+[ì˜ˆì œ5-9] ëª¨ë“  ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ê¸‰ì—¬, ë¶€ì„œì½”ë“œ, ë¶€ì„œëª…, ìœ„ì¹˜ì½”ë“œ, ë„ì‹œì´ë¦„ ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
 SELECT  e.employee_id AS empno, e.first_name AS ename, e.salary AS esal,
         d.department_name AS dname,
         l.city AS city_of_dept
-FROM    employees e, departments d, locations l -- 3°³ÀÇ Å×ÀÌºí, JOIN Á¶°ÇÀº 2°³ (Å×ÀÌºí °¹¼ö - 1°³)
-WHERE   e.department_id = d.department_id(+)  -- ORA-01468: outer-joinµÈ Å×ÀÌºíÀº 1°³¸¸ ÁöÁ¤ÇÒ ¼ö ÀÖ½À´Ï´Ù ==> ¾çÂÊ¿¡ (+) ±âÈ£ Ç¥½ÃÇÏ¿© ¿¡·¯¹ß»ý
+FROM    employees e, departments d, locations l -- 3ê°œì˜ í…Œì´ë¸”, JOIN ì¡°ê±´ì€ 2ê°œ (í…Œì´ë¸” ê°¯ìˆ˜ - 1ê°œ)
+WHERE   e.department_id = d.department_id(+)  -- ORA-01468: outer-joinëœ í…Œì´ë¸”ì€ 1ê°œë§Œ ì§€ì •í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤ ==> ì–‘ìª½ì— (+) ê¸°í˜¸ í‘œì‹œí•˜ì—¬ ì—ëŸ¬ë°œìƒ
 AND     d.location_id = l.location_id(+)
 ORDER BY 1;
 
 
 
--- 5.5 SELF JOIN : ÇÏ³ªÀÇ Å×ÀÌºíÀ» µÎ ¹ø ¸í½ÃÇÏ¿©, µ¿ÀÏÇÑ Å×ÀÌºí µÎ°³·ÎºÎÅÍ JOINÀ» ÅëÇØ
--- µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÑ °á°ú¸¦ ¹ÝÈ¯ÇÑ´Ù.
--- 1) ½ÇÁ¦·Î Å×ÀÌºíÀ» µÎ°³ÀÎ°Ô ´õ ³ªÀ»±î? (¹°¸®ÀûÀ¸·Î ÀúÀåµÇ´Â °ø°£ ³¶ºñ)
--- 2) µÎ ¹ø ¸í½ÃÇÑ´Ù (¸Þ¸ð¸®»ó-¼Óµµ ºü¸£ÁÒ!-¹°¸®ÀûÀ¸·Î Áßº¹µÈ µ¥ÀÌÅÍ ÀúÀå ÇÏÁö¾Ê°í!! ¼­·Î´Ù¸¥,
--- Å×ÀÌºíÀÌ Á¸ÀçÇÏ´Â °ÍÃ³·³ JOIN ¿¬»ê
--- ¡Ø Å×ÀÌºí °ü°è : ¼øÈ¯ ÂüÁ¶(Àç±Í, Recursive)
+-- 5.5 SELF JOIN : í•˜ë‚˜ì˜ í…Œì´ë¸”ì„ ë‘ ë²ˆ ëª…ì‹œí•˜ì—¬, ë™ì¼í•œ í…Œì´ë¸” ë‘ê°œë¡œë¶€í„° JOINì„ í†µí•´
+-- ë°ì´í„°ë¥¼ ì¡°íšŒí•œ ê²°ê³¼ë¥¼ ë°˜í™˜í•œë‹¤.
+-- 1) ì‹¤ì œë¡œ í…Œì´ë¸”ì„ ë‘ê°œì¸ê²Œ ë” ë‚˜ì„ê¹Œ? (ë¬¼ë¦¬ì ìœ¼ë¡œ ì €ìž¥ë˜ëŠ” ê³µê°„ ë‚­ë¹„)
+-- 2) ë‘ ë²ˆ ëª…ì‹œí•œë‹¤ (ë©”ëª¨ë¦¬ìƒ-ì†ë„ ë¹ ë¥´ì£ !-ë¬¼ë¦¬ì ìœ¼ë¡œ ì¤‘ë³µëœ ë°ì´í„° ì €ìž¥ í•˜ì§€ì•Šê³ !! ì„œë¡œë‹¤ë¥¸,
+-- í…Œì´ë¸”ì´ ì¡´ìž¬í•˜ëŠ” ê²ƒì²˜ëŸ¼ JOIN ì—°ì‚°
+-- â€» í…Œì´ë¸” ê´€ê³„ : ìˆœí™˜ ì°¸ì¡°(ìž¬ê·€, Recursive)
 
-[¿¹Á¦ 5-10] »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ¸Å´ÏÀúÀÇ »ç¹ø, ¸Å´ÏÀúÀÇ ÀÌ¸§ Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
--- »ç¿øÀÇ Á¤º¸ : employees [»ç¹ø ÄÃ·³, ÀÌ¸§]
--- ¸Å´ÏÀúÀÇ Á¤º¸ : manager?? [»ç¹ø ÄÃ·³, ÀÌ¸§]
+[ì˜ˆì œ 5-10] ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ë§¤ë‹ˆì €ì˜ ì‚¬ë²ˆ, ë§¤ë‹ˆì €ì˜ ì´ë¦„ ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
+-- ì‚¬ì›ì˜ ì •ë³´ : employees [ì‚¬ë²ˆ ì»¬ëŸ¼, ì´ë¦„]
+-- ë§¤ë‹ˆì €ì˜ ì •ë³´ : manager?? [ì‚¬ë²ˆ ì»¬ëŸ¼, ì´ë¦„]
 
 SELECT employee_id, first_name, manager_id
 FROM    employees;
@@ -238,30 +238,30 @@ FROM    employees;
 SELECT  e.employee_id, e.first_name,
         m.employee_id AS manager_id, m.first_name AS manager_name
 FROM    employees e, employees m
-WHERE   e.manager_id = m.employee_id -- ID : Identifity, ~ied. À¯ÀÏÇÑ~! NULL Çã¿ë
+WHERE   e.manager_id = m.employee_id -- ID : Identifity, ~ied. ìœ ì¼í•œ~! NULL í—ˆìš©
 ORDER BY 1;
 
---- ¿À¶óÅ¬ JOIN ¿¬»ê ------------------------------------------------------------------------
--- 1) Ä«Å×½Ã¾È °ö(Cartesign Product) : Á¶ÀÎ Á¶°ÇÀýÀ» »ý·«ÇßÀ»¶§~ Àß¸øµÈ °á°ú(³Ê¹«¸¹Àº °á°úÇà)
--- 2) EQUI-JOIN (µ¿µîÁ¶ÀÎ, =) <---> INNER JOIN(=³»ºÎ Á¶ÀÎ) / °³³ä»ó ±¸ºÐ
--- 3) NON-EQUI JOIN (ºñ±³¿¬»êÀÚ,BETWEEN,IN) <---> EQUI-JOIN (»ç¿ëÇÒÀÏÀÌ °ÅÀÇ ¾ø´Ù)
--- 4) OUTER JOIN (=¿ÜºÎ Á¶ÀÎ) <---> INNER JOIN°ú ¹Ý´ëµÇ´Â °³³ä
--- 5) SELF JOIN : ÇÏ³ªÀÇ Å×ÀÌºí¿¡ °øÅëµÈ µ¥ÀÌÅÍ ÄÃ·³À» ÀÌ¿ëÇÑ ÀÚ±â¼øÈ¯ ÂüÁ¶ JOIN
+--- ì˜¤ë¼í´ JOIN ì—°ì‚° ------------------------------------------------------------------------
+-- 1) ì¹´í…Œì‹œì•ˆ ê³±(Cartesign Product) : ì¡°ì¸ ì¡°ê±´ì ˆì„ ìƒëžµí–ˆì„ë•Œ~ ìž˜ëª»ëœ ê²°ê³¼(ë„ˆë¬´ë§Žì€ ê²°ê³¼í–‰)
+-- 2) EQUI-JOIN (ë™ë“±ì¡°ì¸, =) <---> INNER JOIN(=ë‚´ë¶€ ì¡°ì¸) / ê°œë…ìƒ êµ¬ë¶„
+-- 3) NON-EQUI JOIN (ë¹„êµì—°ì‚°ìž,BETWEEN,IN) <---> EQUI-JOIN (ì‚¬ìš©í• ì¼ì´ ê±°ì˜ ì—†ë‹¤)
+-- 4) OUTER JOIN (=ì™¸ë¶€ ì¡°ì¸) <---> INNER JOINê³¼ ë°˜ëŒ€ë˜ëŠ” ê°œë…
+-- 5) SELF JOIN : í•˜ë‚˜ì˜ í…Œì´ë¸”ì— ê³µí†µëœ ë°ì´í„° ì»¬ëŸ¼ì„ ì´ìš©í•œ ìžê¸°ìˆœí™˜ ì°¸ì¡° JOIN
 
 
---- 5.6 ANSI JOIN (¾È½Ã Á¶ÀÎ, p.48)
--- ¹Ì±¹ Ç¥ÁØ ÇùÈ¸(American National Standards Institute, ANSI)
--- ¿À¶óÅ¬ DBMS°¡ ¾Æ´Ñ ´Ù¸¥ DBMS¿¡¼­ °øÅëÀûÀ¸·Î »ç¿ëÇÒ ¼ö ÀÖ´Â Ç¥ÁØ ¹æ½ÄÀÇ JOIN ¿¬»ê
--- ¸ðµç DBMS¿¡¼­ ..RDBMS(Relational DBMS/°ü°èÇü DBMS)
+--- 5.6 ANSI JOIN (ì•ˆì‹œ ì¡°ì¸, p.48)
+-- ë¯¸êµ­ í‘œì¤€ í˜‘íšŒ(American National Standards Institute, ANSI)
+-- ì˜¤ë¼í´ DBMSê°€ ì•„ë‹Œ ë‹¤ë¥¸ DBMSì—ì„œ ê³µí†µì ìœ¼ë¡œ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” í‘œì¤€ ë°©ì‹ì˜ JOIN ì—°ì‚°
+-- ëª¨ë“  DBMSì—ì„œ ..RDBMS(Relational DBMS/ê´€ê³„í˜• DBMS)
 
 
 
--- 5.6.1 INNER JOIN <---> ¿À¶óÅ¬ JOIN¿¡¼­ INNER JOINÀº »ç½Ç, EQUI-JOIN! 
--- FROMÀý¿¡ INNER JOINÀ» »ç¿ëÇÏ°í, JOIN Á¶°Ç(=WHERE)Àº ON Àý¿¡ ¸í½ÃÇÑ´Ù.
+-- 5.6.1 INNER JOIN <---> ì˜¤ë¼í´ JOINì—ì„œ INNER JOINì€ ì‚¬ì‹¤, EQUI-JOIN! 
+-- FROMì ˆì— INNER JOINì„ ì‚¬ìš©í•˜ê³ , JOIN ì¡°ê±´(=WHERE)ì€ ON ì ˆì— ëª…ì‹œí•œë‹¤.
 
-[¿¹Á¦5-12](¸ðµç) »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ºÎ¼­ÄÚµå, ºÎ¼­¸í Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
+[ì˜ˆì œ5-12](ëª¨ë“ ) ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ë¶€ì„œì½”ë“œ, ë¶€ì„œëª… ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
 
--- ¿À¶óÅ¬ JOIN
+-- ì˜¤ë¼í´ JOIN
 SELECT  e.employee_id, e.first_name, e.department_id,
         d.department_name
 FROM    employees e, departments d
@@ -272,47 +272,47 @@ ORDER BY 1;
 -- ANSI INNER JOIN
 SELECT  e.employee_id, e.first_name, e.department_id,
         d.department_name
-FROM    employees e INNER JOIN departments d -- 1) FROM Àý¿¡ INNER JOIN À» »ç¿ë : , ´ë½Å!
-ON   e.department_id = d.department_id       -- 2) JOIN Á¶°ÇÀº ON Àý¿¡ Ç¥½Ã : WHERE ´ë½Å~ ON!
+FROM    employees e INNER JOIN departments d -- 1) FROM ì ˆì— INNER JOIN ì„ ì‚¬ìš© : , ëŒ€ì‹ !
+ON   e.department_id = d.department_id       -- 2) JOIN ì¡°ê±´ì€ ON ì ˆì— í‘œì‹œ : WHERE ëŒ€ì‹ ~ ON!
 AND     e.manager_id IS NOT NULL
-ORDER BY 1; -- 105¸í
+ORDER BY 1; -- 105ëª…
 
 
--- ONÀý ´ë½Å USINGÀýÀ» »ç¿ëÇÒ ¼ö ÀÖ´Ù.
--- ´Ü, USING À» »ç¿ëÇÒ¶§ ÄÃ·³¸í¸¸ ±â¼úÇØ¾ß ÇÑ´Ù
--- ¡Ø °øÅë ÄÃ·³ ÀÌ¸§¸¸ ±â¼ú  ==> Å×ÀÌºíÀÇ º°Äª(Alias)À» »ý·«!!
+-- ONì ˆ ëŒ€ì‹  USINGì ˆì„ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
+-- ë‹¨, USING ì„ ì‚¬ìš©í• ë•Œ ì»¬ëŸ¼ëª…ë§Œ ê¸°ìˆ í•´ì•¼ í•œë‹¤
+-- â€» ê³µí†µ ì»¬ëŸ¼ ì´ë¦„ë§Œ ê¸°ìˆ   ==> í…Œì´ë¸”ì˜ ë³„ì¹­(Alias)ì„ ìƒëžµ!!
 
- -- 2) SELECTÀý¿¡ °øÅëÄÃ·³µµ Å×ÀÌºí º°Äª Á¦°Å
+ -- 2) SELECTì ˆì— ê³µí†µì»¬ëŸ¼ë„ í…Œì´ë¸” ë³„ì¹­ ì œê±°
 
 SELECT  e.employee_id, e.first_name, department_id,
         d.department_name
 FROM    employees e INNER JOIN departments d 
-WHERE     e.manager_id IS NOT NULL   -- ¡Ø¿À·ù
-USING   (department_id)       -- 1) ON ´ë½Å USING (°øÅë ÄÃ·³¸í¸¸)
---WHERE     e.manager_id IS NOT NULL   -- ¡Ø¿À·ù ==> WHERE Ã³¸®
-ORDER BY 1; -- 105¸í
---ORA-00933: SQL ¸í·É¾î°¡ ¿Ã¹Ù¸£°Ô Á¾·áµÇÁö ¾Ê¾Ò½À´Ï´Ù ==> SELECT Àýµµ È®ÀÎ!
+WHERE     e.manager_id IS NOT NULL   -- â€»ì˜¤ë¥˜
+USING   (department_id)       -- 1) ON ëŒ€ì‹  USING (ê³µí†µ ì»¬ëŸ¼ëª…ë§Œ)
+--WHERE     e.manager_id IS NOT NULL   -- â€»ì˜¤ë¥˜ ==> WHERE ì²˜ë¦¬
+ORDER BY 1; -- 105ëª…
+--ORA-00933: SQL ëª…ë ¹ì–´ê°€ ì˜¬ë°”ë¥´ê²Œ ì¢…ë£Œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤ ==> SELECT ì ˆë„ í™•ì¸!
 --00933. 00000 -  "SQL command not properly ended"
 
--- ORA-00906: ´©¶ôµÈ ÁÂ°ýÈ£    ==> USING (°øÅëÄÃ·³)
+-- ORA-00906: ëˆ„ë½ëœ ì¢Œê´„í˜¸    ==> USING (ê³µí†µì»¬ëŸ¼)
 -- 00906. 00000 -  "missing left parenthesis"
 
-[¿¹Á¦5-13] 
+[ì˜ˆì œ5-13] 
 SELECT  e.employee_id, e.first_name, department_id,
         d.department_name
-FROM    employees e JOIN departments d -- INNER°¡ ¿É¼Ç~
+FROM    employees e JOIN departments d -- INNERê°€ ì˜µì…˜~
 USING   (department_id)
 WHERE   e.manager_id IS NOT NULL
 ORDER BY    1;
 
--- ¿À¶óÅ¬ Á¶ÀÎ : Cartesian Product, EQUI JOIN(=), NON-EQUI JOIN(>,>=,<,<=, BETWEEN, IN), OUTER JOIN(+)
+-- ì˜¤ë¼í´ ì¡°ì¸ : Cartesian Product, EQUI JOIN(=), NON-EQUI JOIN(>,>=,<,<=, BETWEEN, IN), OUTER JOIN(+)
 -- ANSI JOIN   :  (CROSS JOIN)    , INNER JOIN ,                 OUTER JOIN
 
 
 
-[¿¹Á¦5-15] »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ºÎ¼­ÄÚµå, ºÎ¼­¸í, À§Ä¡ÄÚµå, µµ½ÃÁ¤º¸, [±¹°¡, ´ë·ú]¸¦ Á¶È¸ÇÑ´Ù.
--- ¿À¶óÅ¬ JOIN / ANSI JOIN
--- Å×ÀÌºíÀÌ 3°³ ÀÌ»óÀÏ¶§ ==> Ã¹¹øÂ° JOINÀÇ °á°ú¿¡, µÎ¹øÂ° JOINÀ» Ãß°¡ÇÏ´Â ÇüÅÂ·Î JOIN ¿¬»ê
+[ì˜ˆì œ5-15] ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ë¶€ì„œì½”ë“œ, ë¶€ì„œëª…, ìœ„ì¹˜ì½”ë“œ, ë„ì‹œì •ë³´, [êµ­ê°€, ëŒ€ë¥™]ë¥¼ ì¡°íšŒí•œë‹¤.
+-- ì˜¤ë¼í´ JOIN / ANSI JOIN
+-- í…Œì´ë¸”ì´ 3ê°œ ì´ìƒì¼ë•Œ ==> ì²«ë²ˆì§¸ JOINì˜ ê²°ê³¼ì—, ë‘ë²ˆì§¸ JOINì„ ì¶”ê°€í•˜ëŠ” í˜•íƒœë¡œ JOIN ì—°ì‚°
 SELECT  e.employee_id, e.first_name, e.department_id,
         d.department_name,
         l.city
@@ -340,30 +340,30 @@ AND     d.location_id = l.location_id; -- 106rows
 
 
 
--- 5.6.2 OUTER JOIN <---> ¿À¶óÅ¬ JOIN¿¡¼­ (+)¸¦ »ç¿ëÇÏ´Â OUTER JOIN°ú °°Àº ±â´ÉÀ» ÇÏ´Â ANSI JOIN
--- ¿À¶óÅ¬ JOINÀÇ OUTER JOINÀº Á¶ÀÎ Á¶°ÇÀý¿¡ ¸ðµÎ (+) ºÙ¿´À½.
--- ANSI JOINÀÇ OUTER JOINÀº FROMÀý¿¡ [LEFT|RIGHT|FULL] OUTER JOINÀ» »ç¿ëÇÏ°í,
--- JOIN Á¶°ÇÀº ONÀý¿¡ ¸í½ÃÇÑ´Ù.
+-- 5.6.2 OUTER JOIN <---> ì˜¤ë¼í´ JOINì—ì„œ (+)ë¥¼ ì‚¬ìš©í•˜ëŠ” OUTER JOINê³¼ ê°™ì€ ê¸°ëŠ¥ì„ í•˜ëŠ” ANSI JOIN
+-- ì˜¤ë¼í´ JOINì˜ OUTER JOINì€ ì¡°ì¸ ì¡°ê±´ì ˆì— ëª¨ë‘ (+) ë¶™ì˜€ìŒ.
+-- ANSI JOINì˜ OUTER JOINì€ FROMì ˆì— [LEFT|RIGHT|FULL] OUTER JOINì„ ì‚¬ìš©í•˜ê³ ,
+-- JOIN ì¡°ê±´ì€ ONì ˆì— ëª…ì‹œí•œë‹¤.
 
-[¿¹Á¦5-16] »ç¿øÀÇ »ç¹ø, ÀÌ¸§, ºÎ¼­ÄÚµå, ºÎ¼­¸í Á¤º¸¸¦ Á¶È¸ÇÑ´Ù.
+[ì˜ˆì œ5-16] ì‚¬ì›ì˜ ì‚¬ë²ˆ, ì´ë¦„, ë¶€ì„œì½”ë“œ, ë¶€ì„œëª… ì •ë³´ë¥¼ ì¡°íšŒí•œë‹¤.
 SELECT  e.employee_id, e.first_name, e.department_id,
         d.department_name
-FROM    employees e FULL OUTER JOIN departments d-- INNER: »ý·«°¡´É
-ON      e.department_id = d.department_id --WHERE ´ë½Å ON ¶Ç´Â USING(°øÅë ÄÃ·³¸í)
+FROM    employees e FULL OUTER JOIN departments d-- INNER: ìƒëžµê°€ëŠ¥
+ON      e.department_id = d.department_id --WHERE ëŒ€ì‹  ON ë˜ëŠ” USING(ê³µí†µ ì»¬ëŸ¼ëª…)
 ORDER BY 1;
 
--- OUTER JOIN À¸·Î FULL »ý·«½Ã ¹ß»ý!
--- ORA-00905: ´©¶ôµÈ Å°¿öµå
+-- OUTER JOIN ìœ¼ë¡œ FULL ìƒëžµì‹œ ë°œìƒ!
+-- ORA-00905: ëˆ„ë½ëœ í‚¤ì›Œë“œ
 -- 00905. 00000 -  "missing keyword"
 
 
--- [LEFT|RIGHT|FULL] OUTER JOIN µµ INNER JOIN Ã³·³,
--- 1) ON Àý¿¡ Á¶ÀÎÁ¶°Ç ¶Ç´Â
--- 2) USING Àý¿¡ Á¶ÀÎÁ¶°Ç ¸í½Ã
+-- [LEFT|RIGHT|FULL] OUTER JOIN ë„ INNER JOIN ì²˜ëŸ¼,
+-- 1) ON ì ˆì— ì¡°ì¸ì¡°ê±´ ë˜ëŠ”
+-- 2) USING ì ˆì— ì¡°ì¸ì¡°ê±´ ëª…ì‹œ
 
 
 
--- 5.6 ANSI JOIN  /  ANSI ÇùÈ¸¿¡¼­ ¸¸µç Ç¥ÁØ JOIN ½Ä(ORACLE¿Ü¿¡µµ MYSQL, CUBRID, ±âÅ¸ RDBMS °øÅë JOIN)
+-- 5.6 ANSI JOIN  /  ANSI í˜‘íšŒì—ì„œ ë§Œë“  í‘œì¤€ JOIN ì‹(ORACLEì™¸ì—ë„ MYSQL, CUBRID, ê¸°íƒ€ RDBMS ê³µí†µ JOIN)
 
 
 -- 5.7 OUTER JOIN
