@@ -1,32 +1,32 @@
--- 10ìž¥. ì œì•½ì¡°ê±´
+-- 10Àå. Á¦¾àÁ¶°Ç
 
--- ë¬´ê²°ì„± ì œì•½ì¡°ê±´(Integrity Constraints) : ë°ì´í„°ì˜ ì •í™•ì„±ì„ ë³´ìž¥í•˜ê¸° ìœ„í•´ ë‘ëŠ” ì œì•½/ì œí•œ ì¡°ê±´
--- 1) í…Œì´ë¸” ìƒì„±ì‹œ ì •ì˜ : CREATE TABLE ~
--- 2) í…Œì´ë¸” ìƒì„± í›„ ì¶”ê°€ : ALTER TABLE ~
+-- ¹«°á¼º Á¦¾àÁ¶°Ç(Integrity Constraints) : µ¥ÀÌÅÍÀÇ Á¤È®¼ºÀ» º¸ÀåÇÏ±â À§ÇØ µÎ´Â Á¦¾à/Á¦ÇÑ Á¶°Ç
+-- 1) Å×ÀÌºí »ý¼º½Ã Á¤ÀÇ : CREATE TABLE ~
+-- 2) Å×ÀÌºí »ý¼º ÈÄ Ãß°¡ : ALTER TABLE ~
 
--- 10.1 NOT NULL ì œì•½ì¡°ê±´ - NULL í—ˆìš©í•˜ì§€ ì•ŠìŒ    : Check
--- ì»¬ëŸ¼ì˜ ë°ì´í„° ê°’ì— ìžˆì–´ NULL í—ˆìš©í•˜ì§€ ì•ŠìŒ ==> ë°˜ë“œì‹œ ë°ì´í„°ë¥¼ ìž…ë ¥í•´ì•¼ í•œë‹¤.
--- â˜… í…Œì´ë¸” ìƒì„±ì‹œ ì»¬ëŸ¼ ë ˆë²¨ì—ì„œ ì •ì˜í•œë‹¤
--- ex> í…Œì´ë¸” ìƒì„± êµ¬ë¬¸
-CREATE TABLE í…Œì´ë¸”ëª…(
-    ì»¬ëŸ¼ëª…1 ë°ì´í„°íƒ€ìž…(ê¸¸ì´) ì œì•½ì¡°ê±´, -- ì»¬ëŸ¼ ë ˆë²¨
-    ì»¬ëŸ¼ëª…2 ë°ì´í„°íƒ€ìž…(ê¸¸ì´),
-    ...ê³„ì†...
+-- 10.1 NOT NULL Á¦¾àÁ¶°Ç - NULL Çã¿ëÇÏÁö ¾ÊÀ½    : Check
+-- ÄÃ·³ÀÇ µ¥ÀÌÅÍ °ª¿¡ ÀÖ¾î NULL Çã¿ëÇÏÁö ¾ÊÀ½ ==> ¹Ýµå½Ã µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇØ¾ß ÇÑ´Ù.
+-- ¡Ú Å×ÀÌºí »ý¼º½Ã ÄÃ·³ ·¹º§¿¡¼­ Á¤ÀÇÇÑ´Ù
+-- ex> Å×ÀÌºí »ý¼º ±¸¹®
+CREATE TABLE Å×ÀÌºí¸í(
+    ÄÃ·³¸í1 µ¥ÀÌÅÍÅ¸ÀÔ(±æÀÌ) Á¦¾àÁ¶°Ç, -- ÄÃ·³ ·¹º§
+    ÄÃ·³¸í2 µ¥ÀÌÅÍÅ¸ÀÔ(±æÀÌ),
+    ...°è¼Ó...
 )
 
 CREATE TABLE user(
-    id VARCHAR2(20) NOT NULL, -- ì»¬ëŸ¼ ë ˆë²¨
+    id VARCHAR2(20) NOT NULL, -- ÄÃ·³ ·¹º§
     nick VARCHAR2(20) ,
-    ...ê³„ì†...
+    ...°è¼Ó...
 )
 
-[ì˜ˆì œ10-1] null_test ë¼ëŠ” í…Œì´ë¸”ì„ ìƒì„±í•˜ë˜ ì»¬ëŸ¼ì€ col1 ë¬¸ìžíƒ€ìž… 5ë°”ì´íŠ¸ ê¸¸ì´, NULL í—ˆìš©í•˜ì§€ ì•Šê³ , 
-col2 ë¬¸ìžíƒ€ìž… 5ë°”ì´íŠ¸ ê¸¸ì´ë¡œ ì •ì˜í•˜ì‹œì˜¤~
+[¿¹Á¦10-1] null_test ¶ó´Â Å×ÀÌºíÀ» »ý¼ºÇÏµÇ ÄÃ·³Àº col1 ¹®ÀÚÅ¸ÀÔ 5¹ÙÀÌÆ® ±æÀÌ, NULL Çã¿ëÇÏÁö ¾Ê°í, 
+col2 ¹®ÀÚÅ¸ÀÔ 5¹ÙÀÌÆ® ±æÀÌ·Î Á¤ÀÇÇÏ½Ã¿À~
 
--- 1) í…Œì´ë¸” ìƒì„± : null_test + not null
+-- 1) Å×ÀÌºí »ý¼º : null_test + not null
 CREATE TABLE null_test (
-    col1 VARCHAR2(5) NOT NULL, -- ì»¬ëŸ¼ ë ˆë²¨ : NULL í—ˆìš©í•˜ì§€ ì•ŠìŒ
-    col2 VARCHAR2(5) -- ì œì•½ì¡°ê±´ x ==> NULL í—ˆìš©
+    col1 VARCHAR2(5) NOT NULL, -- ÄÃ·³ ·¹º§ : NULL Çã¿ëÇÏÁö ¾ÊÀ½
+    col2 VARCHAR2(5) -- Á¦¾àÁ¶°Ç x ==> NULL Çã¿ë
 );
 
 INSERT INTO null_test (col1)
@@ -35,103 +35,103 @@ VALUES ('AA'); -- AA | (null)
 SELECT *
 FROM    null_test;
 
-[ì˜ˆì œ10-3] BBë¥¼ col2 ì— ì‚½ìž…
+[¿¹Á¦10-3] BB¸¦ col2 ¿¡ »ðÀÔ
 INSERT INTO null_test (col2)
-VALUES ('BB'); -- col1 NOT NULL ì œì•½ì¡°ê±´
--- ORA-01400: NULLì„ ("HR"."NULL_TEST"."COL1") ì•ˆì— ì‚½ìž…í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+VALUES ('BB'); -- col1 NOT NULL Á¦¾àÁ¶°Ç
+-- ORA-01400: NULLÀ» ("HR"."NULL_TEST"."COL1") ¾È¿¡ »ðÀÔÇÒ ¼ö ¾ø½À´Ï´Ù
 
--- 2) í…Œì´ë¸” ìƒì„± í›„ NOT NULL ì§€ì •
--- ì»¬ëŸ¼ì— NULL ë°ì´í„°ê°€ ì—†ëŠ” ê²½ìš°, NOT NULLì„ ì¶”ê°€í•  ìˆ˜ ìžˆë‹¤.
+-- 2) Å×ÀÌºí »ý¼º ÈÄ NOT NULL ÁöÁ¤
+-- ÄÃ·³¿¡ NULL µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì, NOT NULLÀ» Ãß°¡ÇÒ ¼ö ÀÖ´Ù.
 
--- null_testì— ì´ë¯¸ BBê°€ col2 ì»¬ëŸ¼ì— ìžˆëŠ” ìƒíƒœ
+-- null_test¿¡ ÀÌ¹Ì BB°¡ col2 ÄÃ·³¿¡ ÀÖ´Â »óÅÂ
 UPDATE null_test
-SET col2 = 'BB'; -- col2 ì»¬ëŸ¼ì˜ ë°ì´í„°ë¥¼ null ì—ì„œ 'BB'ë¡œ ë³€ê²½
+SET col2 = 'BB'; -- col2 ÄÃ·³ÀÇ µ¥ÀÌÅÍ¸¦ null ¿¡¼­ 'BB'·Î º¯°æ
 
 SELECT *
 FROM    null_test;
 
-[ì˜ˆì œ10-4]
+[¿¹Á¦10-4]
 ALTER TABLE null_test
-MODIFY  (col2 NOT NULL); -- ì œì•½ì¡°ê±´ ì¶”ê°€
+MODIFY  (col2 NOT NULL); -- Á¦¾àÁ¶°Ç Ãß°¡
 
 
-[ì˜ˆì œ10-5] col2ë¥¼ NULLë¡œ ë°”ê¾¸ì–´ë³´ë©´ ==> ì œì•½ì¡°ê±´ì´ ì¶”ê°€ë˜ì—ˆìœ¼ë‹ˆ, ì˜¤ë¥˜ë°œìƒ!
--- col2ì— NOT NULLì´ ì¶”ê°€ ==> ë°ì´í„°ë¥¼ NULL
+[¿¹Á¦10-5] col2¸¦ NULL·Î ¹Ù²Ù¾îº¸¸é ==> Á¦¾àÁ¶°ÇÀÌ Ãß°¡µÇ¾úÀ¸´Ï, ¿À·ù¹ß»ý!
+-- col2¿¡ NOT NULLÀÌ Ãß°¡ ==> µ¥ÀÌÅÍ¸¦ NULL
 UPDATE null_test
-SET col2 = NULL;  -- ì—ëŸ¬ ë°œìƒ
+SET col2 = NULL;  -- ¿¡·¯ ¹ß»ý
 
--- ë‹¤ì‹œ col2 ì»¬ëŸ¼ì— NULL í—ˆìš©
+-- ´Ù½Ã col2 ÄÃ·³¿¡ NULL Çã¿ë
 ALTER TABLE null_test
-MODIFY (col2 NULL); -- col1, col2 ëª¨ë‘ ë°ì´í„°ê°€ ìžˆë‹¤ <---> NULLì´ ì•„ë‹ˆë¯€ë¡œ
+MODIFY (col2 NULL); -- col1, col2 ¸ðµÎ µ¥ÀÌÅÍ°¡ ÀÖ´Ù <---> NULLÀÌ ¾Æ´Ï¹Ç·Î
 
 UPDATE null_test
-SET col2 = NULL;    -- 1 í–‰ ì´(ê°€) ì—…ë°ì´íŠ¸ë˜ì—ˆìŠµë‹ˆë‹¤
+SET col2 = NULL;    -- 1 Çà ÀÌ(°¡) ¾÷µ¥ÀÌÆ®µÇ¾ú½À´Ï´Ù
 
 
 
 -- ===================================================================================
--- ë°ì´í„° ì‚¬ì „
+-- µ¥ÀÌÅÍ »çÀü
 SELECT *
-FROM    dict; -- ê³„ì • ê¶Œí•œì— ë”°ë¼ì„œ ë³´ì´ì§€ ì•ŠëŠ” ê°ì²´ ==> SYSë‚˜ SYSTEMìœ¼ë¡œ ì¡°íšŒí•˜ë©´ ëª¨ë‘ ì°¾ì„ ìˆ˜ ìžˆìŒ
+FROM    dict; -- °èÁ¤ ±ÇÇÑ¿¡ µû¶ó¼­ º¸ÀÌÁö ¾Ê´Â °´Ã¼ ==> SYS³ª SYSTEMÀ¸·Î Á¶È¸ÇÏ¸é ¸ðµÎ Ã£À» ¼ö ÀÖÀ½
 
--- ======== ì‚¬ìš©ìž ê³„ì •ìœ¼ë¡œ ìƒì„±ëœ (í…Œì´ë¸”ì˜) ì œì•½ì¡°ê±´ì´ ëª¨ë‘ ê¸°ë¡ëœ ë³„ë„ì˜ í…Œì´ë¸” ê°ì²´ : ì˜¤ë¼í´ ê´€ë¦¬ ======
-SELECT *
-FROM   user_constraints
-WHERE   table_name = 'NULL_TEST'; -- ìƒì„±ì‹œ col1 NOT NULL, ìƒì„± í›„ ì¶”ê°€ col2 NOT NULL
-
-
+-- ======== »ç¿ëÀÚ °èÁ¤À¸·Î »ý¼ºµÈ (Å×ÀÌºíÀÇ) Á¦¾àÁ¶°ÇÀÌ ¸ðµÎ ±â·ÏµÈ º°µµÀÇ Å×ÀÌºí °´Ã¼ : ¿À¶óÅ¬ °ü¸® ======
 SELECT *
 FROM   user_constraints
-WHERE   table_name = 'EMPLOYEES'; -- ì–´?
+WHERE   table_name = 'NULL_TEST'; -- »ý¼º½Ã col1 NOT NULL, »ý¼º ÈÄ Ãß°¡ col2 NOT NULL
+
+
+SELECT *
+FROM   user_constraints
+WHERE   table_name = 'EMPLOYEES'; -- ¾î?
 
 -- COMMIT;
 
 
 
--- 10.2 CHECK ì œì•½ì¡°ê±´ - ê°’ì˜ ë²”ìœ„/ë„ë©”ì¸ (p.80)
--- ì¡°ê±´ì— ë§žëŠ” ë°ì´í„°ë§Œ ì €ìž¥í•  ìˆ˜ ìžˆë„ë¡ í•˜ëŠ” ì œì•½ì¡°ê±´ì´ë‹¤.
--- ì»¬ëŸ¼ ë ˆë²¨, í…Œì´ë¸” ë ˆë²¨ì—ì„œ ì •ì˜í•œë‹¤.
+-- 10.2 CHECK Á¦¾àÁ¶°Ç - °ªÀÇ ¹üÀ§/µµ¸ÞÀÎ (p.80)
+-- Á¶°Ç¿¡ ¸Â´Â µ¥ÀÌÅÍ¸¸ ÀúÀåÇÒ ¼ö ÀÖµµ·Ï ÇÏ´Â Á¦¾àÁ¶°ÇÀÌ´Ù.
+-- ÄÃ·³ ·¹º§, Å×ÀÌºí ·¹º§¿¡¼­ Á¤ÀÇÇÑ´Ù.
 
--- I. í…Œì´ë¸” ìƒì„±í•˜ë©´ì„œ ì œì•½ì¡°ê±´ ì •ì˜
-[ì˜ˆì œ10-6]
+-- I. Å×ÀÌºí »ý¼ºÇÏ¸é¼­ Á¦¾àÁ¶°Ç Á¤ÀÇ
+[¿¹Á¦10-6]
 CREATE TABLE check_test (
-    name VARCHAR2(10) NOT NULL, -- ì»¬ëŸ¼ ë ˆë²¨
-    gender VARCHAR2(10) NOT NULL CHECK (gender IN ('ë‚¨ì„±','ì—¬ì„±','male','female','man','woman')),
+    name VARCHAR2(10) NOT NULL, -- ÄÃ·³ ·¹º§
+    gender VARCHAR2(10) NOT NULL CHECK (gender IN ('³²¼º','¿©¼º','male','female','man','woman')),
     salary  NUMBER(8),
     dept_id NUMBER(4),
-    CONSTRAINT check_test_salary_ck CHECK (salary > 2000) -- í…Œì´ë¸” ë ˆë²¨
+    CONSTRAINT check_test_salary_ck CHECK (salary > 2000) -- Å×ÀÌºí ·¹º§
 );
 
--- í…Œì´ë¸”ëª…_ì»¬ëŸ¼ëª…_ì œì•½ì¡°ê±´ ì•½ì–´(NN: NOT NULL, CK: CHECK, PK: PRIMARY KEY, FK: FOREIGN, UK: UNIQUE KEY)
+-- Å×ÀÌºí¸í_ÄÃ·³¸í_Á¦¾àÁ¶°Ç ¾à¾î(NN: NOT NULL, CK: CHECK, PK: PRIMARY KEY, FK: FOREIGN, UK: UNIQUE KEY)
 
 SELECT constraint_name, constraint_type, search_condition
 FROM    user_constraints
 WHERE   table_name = 'CHECK_TEST';
 
-[ì˜ˆì œ10-7] ë°ì´í„°ë¥¼ check_test í…Œì´ë¸”ì— ì‚½ìž…í•´ë³´ì‹œì˜¤
+[¿¹Á¦10-7] µ¥ÀÌÅÍ¸¦ check_test Å×ÀÌºí¿¡ »ðÀÔÇØº¸½Ã¿À
 
 INSERT INTO check_test
-VALUES ('í™ê¸¸ë™', 'ë‚¨ì„±', 3000, 10); -- gender, salary ì²´í¬ : í†µê³¼
+VALUES ('È«±æµ¿', '³²¼º', 3000, 10); -- gender, salary Ã¼Å© : Åë°ú
 
 INSERT INTO check_test
-VALUES ('ê¹€ê¸¸ë™', 'ë‚¨ìž', 3000, 20); -- gender, salary ì²´í¬ : í†µê³¼
+VALUES ('±è±æµ¿', '³²ÀÚ', 3000, 20); -- gender, salary Ã¼Å© : Åë°ú
 
 INSERT INTO check_test
-VALUES ('ìµœê¸¸ë™', 'man', 0, 20); -- gender ì²´í¬ : man, salary : 0
+VALUES ('ÃÖ±æµ¿', 'man', 0, 20); -- gender Ã¼Å© : man, salary : 0
 
 INSERT INTO check_test
-VALUES ('ì‹¬ì²­', 'ì—¬ìž', 0, 20); -- gender ì²´í¬ : ì—¬ì„± vs ì—¬ìž
+VALUES ('½ÉÃ»', '¿©ÀÚ', 0, 20); -- gender Ã¼Å© : ¿©¼º vs ¿©ÀÚ
 
-[ì˜ˆì œ10-9]
+[¿¹Á¦10-9]
 UPDATE check_test
 SET salary = 2000
-WHERE   name = 'í™ê¸¸ë™';  -- RA-02290: ì²´í¬ ì œì•½ì¡°ê±´(HANUL.CHECK_TEST_SALARY_CK)
+WHERE   name = 'È«±æµ¿';  -- RA-02290: Ã¼Å© Á¦¾àÁ¶°Ç(HANUL.CHECK_TEST_SALARY_CK)
 
--- II. í…Œì´ë¸” ìƒì„± í›„ ì œì•½ì¡°ê±´ ì¶”ê°€/ì§€ì •
-[ì˜ˆì œ10-10]
+-- II. Å×ÀÌºí »ý¼º ÈÄ Á¦¾àÁ¶°Ç Ãß°¡/ÁöÁ¤
+[¿¹Á¦10-10]
 -- DDL : CREATE, ALTER, DROP
---        ìƒì„±,  ìˆ˜ì • , ì‚­ì œ
--- check_testì— ê±¸ë¦° ì œì•½ì¡°ê±´ì„ í™•ì¸í•˜ê³ , ê·¸ëŸ°ë‹¤ìŒ ì‚­ì œ í–ˆë‹¤ê°€ ë‹¤ì‹œ ì¶”ê°€ í•˜ëŠ” ê³¼ì •
+--        »ý¼º,  ¼öÁ¤ , »èÁ¦
+-- check_test¿¡ °É¸° Á¦¾àÁ¶°ÇÀ» È®ÀÎÇÏ°í, ±×·±´ÙÀ½ »èÁ¦ Çß´Ù°¡ ´Ù½Ã Ãß°¡ ÇÏ´Â °úÁ¤
 SELECT constraint_name, constraint_type, search_condition
 FROM    user_constraints
 WHERE   table_name = 'CHECK_TEST';
@@ -139,61 +139,61 @@ WHERE   table_name = 'CHECK_TEST';
 /*
 SYS_C008409	C	"NAME" IS NOT NULL
 SYS_C008410	C	"GENDER" IS NOT NULL
-SYS_C008411	C	gender IN ('ë‚¨ì„±','ì—¬ì„±','male','female','man','woman')
+SYS_C008411	C	gender IN ('³²¼º','¿©¼º','male','female','man','woman')
 CHECK_TEST_SALARY_CK	C	salary > 2000
 */
--- ì œê±°
+-- Á¦°Å
 ALTER TABLE check_test
-DROP CONSTRAINT check_test_salary_ck; -- Table CHECK_TESTì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+DROP CONSTRAINT check_test_salary_ck; -- Table CHECK_TESTÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù.
 
--- ë‹¤ì‹œ ì¶”ê°€
-[ì˜ˆì œ10-11]
+-- ´Ù½Ã Ãß°¡
+[¿¹Á¦10-11]
 ALTER TABLE check_test
 ADD CONSTRAINT check_salary_dept_ck CHECK (salary BETWEEN 2000 AND 10000 AND dept_id IN (10, 20, 30));
--- ê¸‰ì—¬ 2000~1000 ì´ë©´ì„œ ë¶€ì„œì½”ë“œ 10,20,30 ì´ì–´ì•¼ ìž…ë ¥ì´ ë¨
+-- ±Þ¿© 2000~1000 ÀÌ¸é¼­ ºÎ¼­ÄÚµå 10,20,30 ÀÌ¾î¾ß ÀÔ·ÂÀÌ µÊ
 
 SELECT *
 FROM    check_test;
 /*
 NAME       GENDER         SALARY    DEPT_ID
 ---------- ---------- ---------- ----------
-í™ê¸¸ë™     ë‚¨ì„±             3000         10
+È«±æµ¿     ³²¼º             3000         10
 */
 
-[ì˜ˆì œ10-12] 
+[¿¹Á¦10-12] 
 UPDATE check_test
 SET salary = 12000
-WHERE   name='í™ê¸¸ë™'; -- ORA-02290: ì²´í¬ ì œì•½ì¡°ê±´(HANUL.CHECK_SALARY_DEPT_CK)ì´ ìœ„ë°°ë˜ì—ˆìŠµë‹ˆë‹¤
+WHERE   name='È«±æµ¿'; -- ORA-02290: Ã¼Å© Á¦¾àÁ¶°Ç(HANUL.CHECK_SALARY_DEPT_CK)ÀÌ À§¹èµÇ¾ú½À´Ï´Ù
 
 
 UPDATE check_test
 SET     dept_id = 40
-WHERE   name='í™ê¸¸ë™'; -- ORA-02290: ì²´í¬ ì œì•½ì¡°ê±´(HANUL.CHECK_SALARY_DEPT_CK)ì´ ìœ„ë°°ë˜ì—ˆìŠµë‹ˆë‹¤
+WHERE   name='È«±æµ¿'; -- ORA-02290: Ã¼Å© Á¦¾àÁ¶°Ç(HANUL.CHECK_SALARY_DEPT_CK)ÀÌ À§¹èµÇ¾ú½À´Ï´Ù
 
 
 
--- 10.3 UNIQUE ì œì•½ì¡°ê±´ - ì¤‘ë³µë°©ì§€ (NULL í—ˆìš©)
--- ë°ì´í„°ê°€ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ ìœ ì¼ì„±ì„ ë³´ìž¥í•˜ëŠ” ì œì•½ì¡°ê±´
--- ì»¬ëŸ¼ ë ˆë²¨, í…Œì´ë¸” ë ˆë²¨ì—ì„œ ì •ì˜
--- â˜…ë³µí•©í‚¤(Composite Key)ë¥¼ ìƒì„±í•  ìˆ˜ ìžˆë‹¤â˜… ì˜ˆ) ë³´í†µ ì‚¬ë²ˆ vs ì‚¬ë²ˆ+ì´ë¦„
+-- 10.3 UNIQUE Á¦¾àÁ¶°Ç - Áßº¹¹æÁö (NULL Çã¿ë)
+-- µ¥ÀÌÅÍ°¡ Áßº¹µÇÁö ¾Êµµ·Ï À¯ÀÏ¼ºÀ» º¸ÀåÇÏ´Â Á¦¾àÁ¶°Ç
+-- ÄÃ·³ ·¹º§, Å×ÀÌºí ·¹º§¿¡¼­ Á¤ÀÇ
+-- ¡Úº¹ÇÕÅ°(Composite Key)¸¦ »ý¼ºÇÒ ¼ö ÀÖ´Ù¡Ú ¿¹) º¸Åë »ç¹ø vs »ç¹ø+ÀÌ¸§
 -- PRIMARY KEY : UNIQUE + NOT NULL
--- í…Œì´ë¸” ìƒì„±ì‹œ UNIQUE ì§€ì •
--- I.ì»¬ëŸ¼ë ˆë²¨ ì •ì˜
-[ì˜ˆì œ10-13]
+-- Å×ÀÌºí »ý¼º½Ã UNIQUE ÁöÁ¤
+-- I.ÄÃ·³·¹º§ Á¤ÀÇ
+[¿¹Á¦10-13]
 CREATE TABLE unique_test (
     col1    VARCHAR2(5) UNIQUE NOT NULL,
     col2    VARCHAR2(5),
     col3    VARCHAR2(5) NOT NULL,
     col4    VARCHAR2(5) NOT NULL,
     CONSTRAINT uni_col2_uk UNIQUE (col2),
-    CONSTRAINT uni_col34_uk UNIQUE (col3, col4) -- ë³µí•©í‚¤ : ë‘˜ ì´ìƒì˜ ì»¬ëŸ¼ì„ ì¡°í•© ==> ì‚¬ë²ˆ+ì „í™”ë²ˆí˜¸, ì‚¬ë²ˆ+ì´ë¦„,...
+    CONSTRAINT uni_col34_uk UNIQUE (col3, col4) -- º¹ÇÕÅ° : µÑ ÀÌ»óÀÇ ÄÃ·³À» Á¶ÇÕ ==> »ç¹ø+ÀüÈ­¹øÈ£, »ç¹ø+ÀÌ¸§,...
 );
 
 SELECT constraint_name, constraint_type, search_condition
 FROM    user_constraints
 WHERE   table_name = 'UNIQUE_TEST';
 
-[ì˜ˆì œ10-14] ì¤‘ë³µê°’ì„ ì œí•œí•˜ëŠ”ì§€ ìž…ë ¥ í…ŒìŠ¤íŠ¸
+[¿¹Á¦10-14] Áßº¹°ªÀ» Á¦ÇÑÇÏ´ÂÁö ÀÔ·Â Å×½ºÆ®
 INSERT INTO unique_test (col1, col2, col3, col4)
 VALUES ('A1', 'B1', 'C1', 'D1');
 
@@ -203,10 +203,10 @@ FROM    unique_test;
 INSERT INTO unique_test
 VALUES ('A2', 'B2', 'C2', 'D2');
 
-[ì˜ˆì œ10-15] ì—…ë°ì´íŠ¸ í…ŒìŠ¤íŠ¸ --> ì¤‘ë³µëœ ê°’ìœ¼ë¡œ --> ì œì•½ì¡°ê±´ì— ë”°ë¼ ì˜¤ë¥˜ ë°œìƒ!
+[¿¹Á¦10-15] ¾÷µ¥ÀÌÆ® Å×½ºÆ® --> Áßº¹µÈ °ªÀ¸·Î --> Á¦¾àÁ¶°Ç¿¡ µû¶ó ¿À·ù ¹ß»ý!
 UPDATE unique_test
 SET col1='A1'
-WHERE   col1='A2'; -- ORA-00001: ë¬´ê²°ì„± ì œì•½ ì¡°ê±´(HANUL.SYS_C008417)ì— ìœ„ë°°ë©ë‹ˆë‹¤
+WHERE   col1='A2'; -- ORA-00001: ¹«°á¼º Á¦¾à Á¶°Ç(HANUL.SYS_C008417)¿¡ À§¹èµË´Ï´Ù
 
 SELECT *
 FROM    user_constraints
@@ -214,25 +214,25 @@ WHERE   table_name='UNIQUE_TEST';
 
 DESC unique_test;
 
-[ì˜ˆì œ10-16] ë°ì´í„° ìž…ë ¥ í…ŒìŠ¤íŠ¸ --> ì¤‘ë³µê°’ í™•ì¸
+[¿¹Á¦10-16] µ¥ÀÌÅÍ ÀÔ·Â Å×½ºÆ® --> Áßº¹°ª È®ÀÎ
 INSERT INTO unique_test
-VALUES ('A3', '', 'C3', 'D3'); -- col2, '' ëŒ€ì‹  NULL ì‚¬ìš©í•˜ëŠ”ê²Œ ê°€ë…ì„± ì¸¡ë©´ì—ì„œëŠ” ë‚«ë‹¤
+VALUES ('A3', '', 'C3', 'D3'); -- col2, '' ´ë½Å NULL »ç¿ëÇÏ´Â°Ô °¡µ¶¼º Ãø¸é¿¡¼­´Â ³´´Ù
 
 
 INSERT INTO unique_test
-VALUES ('A4', NULL, 'C4', 'D4'); -- col2, '' ëŒ€ì‹  NULL ì‚¬ìš©í•˜ëŠ”ê²Œ ê°€ë…ì„± ì¸¡ë©´ì—ì„œëŠ” ë‚«ë‹¤
+VALUES ('A4', NULL, 'C4', 'D4'); -- col2, '' ´ë½Å NULL »ç¿ëÇÏ´Â°Ô °¡µ¶¼º Ãø¸é¿¡¼­´Â ³´´Ù
 -- COMMIT;
 
 INSERT INTO unique_test
-VALUES ('A4', 'B5', 'C5', 'D5'); -- col2, '' ëŒ€ì‹  NULL ì‚¬ìš©í•˜ëŠ”ê²Œ ê°€ë…ì„± ì¸¡ë©´ì—ì„œëŠ” ë‚«ë‹¤
+VALUES ('A4', 'B5', 'C5', 'D5'); -- col2, '' ´ë½Å NULL »ç¿ëÇÏ´Â°Ô °¡µ¶¼º Ãø¸é¿¡¼­´Â ³´´Ù
 
 INSERT INTO unique_test
-VALUES ('A6', 'B6', NULL, NULL); -- col2, '' ëŒ€ì‹  NULL ì‚¬ìš©í•˜ëŠ”ê²Œ ê°€ë…ì„± ì¸¡ë©´ì—ì„œëŠ” ë‚«ë‹¤
+VALUES ('A6', 'B6', NULL, NULL); -- col2, '' ´ë½Å NULL »ç¿ëÇÏ´Â°Ô °¡µ¶¼º Ãø¸é¿¡¼­´Â ³´´Ù
 
--- II.í…Œì´ë¸” ë ˆë²¨ ì •ì˜
--- í…Œì´ë¸” ìƒì„± í›„ UNIQUE ì¶”ê°€/ì§€ì • : ìƒì„±ì‹œ ìž‘ì„±í•œ UNIQUE ì œê±° --> ì¶”ê°€
+-- II.Å×ÀÌºí ·¹º§ Á¤ÀÇ
+-- Å×ÀÌºí »ý¼º ÈÄ UNIQUE Ãß°¡/ÁöÁ¤ : »ý¼º½Ã ÀÛ¼ºÇÑ UNIQUE Á¦°Å --> Ãß°¡
 
--- ë°ì´í„° ì‚¬ì „ : 
+-- µ¥ÀÌÅÍ »çÀü : 
 SELECT *
 FROM    dict;
 
@@ -241,13 +241,13 @@ SELECT  constraint_name, constraint_type
 FROM    user_constraints
 WHERE   table_name='UNIQUE_TEST';
 
-[ì˜ˆì œ10-18] UNI_COL34_UK ì œì•½ì¡°ê±´ì„ ì‚­ì œí•˜ê³  col2,col3,col4ë¥¼ UNIQUE ë³µí•©í‚¤ë¡œ ì§€ì •í•˜ëŠ”!
+[¿¹Á¦10-18] UNI_COL34_UK Á¦¾àÁ¶°ÇÀ» »èÁ¦ÇÏ°í col2,col3,col4¸¦ UNIQUE º¹ÇÕÅ°·Î ÁöÁ¤ÇÏ´Â!
 ALTER TABLE unique_test
-DROP CONSTRAINT UNI_COL34_UK;  --Table UNIQUE_TESTì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤
+DROP CONSTRAINT UNI_COL34_UK;  --Table UNIQUE_TESTÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù
 
-[ì˜ˆì œ10-19] UNI_COL234_UK ì œì•½ì¡°ê±´ ì¶”ê°€
+[¿¹Á¦10-19] UNI_COL234_UK Á¦¾àÁ¶°Ç Ãß°¡
 ALTER TABLE unique_test
-ADD CONSTRAINT UNI_COL234_UK UNIQUE (col2, col3, col4);  --Table UNIQUE_TESTì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤
+ADD CONSTRAINT UNI_COL234_UK UNIQUE (col2, col3, col4);  --Table UNIQUE_TESTÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù
 
 SELECT *
 FROM    unique_test;
@@ -263,134 +263,134 @@ A3       (null) C3    D3
 A4       (null) C4    D4
 */
 
-[ì˜ˆì œ10-20]
+[¿¹Á¦10-20]
 INSERT INTO unique_test
 VALUES ('A7',NULL,'C4','D4');
 
 
 
--- 10.4 PRIMARY KEY ì œì•½ì¡°ê±´  
--- ë°ì´í„° í–‰(ROW)ì„ ëŒ€í‘œí•˜ë„ë¡ ìœ ì¼í•˜ê²Œ ì‹ë³„í•˜ê¸° ìœ„í•œ ì œì•½ì¡°ê±´
--- UNIQUE + NOT NULLì˜ í˜•íƒœ
--- ê¸°ë³¸í‚¤, ì‹ë³„ìž, ì£¼ í‚¤, PK ë¼ í•œë‹¤.
--- ì»¬ëŸ¼ë ˆë²¨, í…Œì´ë¸”ë ˆë²¨ ì—ì„œ ì •ì˜  â˜…ë³µí•©í‚¤â˜…ë¥¼ ìƒì„±í•  ìˆ˜ ìžˆë‹¤.
--- ì˜ˆ) ì‚¬ëžŒ - ì£¼ë¯¼ë²ˆí˜¸ (= ì¸ì¡°í‚¤),  íšŒì‚¬ì› - ì‚¬ì›ë²ˆí˜¸
+-- 10.4 PRIMARY KEY Á¦¾àÁ¶°Ç  
+-- µ¥ÀÌÅÍ Çà(ROW)À» ´ëÇ¥ÇÏµµ·Ï À¯ÀÏÇÏ°Ô ½Äº°ÇÏ±â À§ÇÑ Á¦¾àÁ¶°Ç
+-- UNIQUE + NOT NULLÀÇ ÇüÅÂ
+-- ±âº»Å°, ½Äº°ÀÚ, ÁÖ Å°, PK ¶ó ÇÑ´Ù.
+-- ÄÃ·³·¹º§, Å×ÀÌºí·¹º§ ¿¡¼­ Á¤ÀÇ  ¡Úº¹ÇÕÅ°¡Ú¸¦ »ý¼ºÇÒ ¼ö ÀÖ´Ù.
+-- ¿¹) »ç¶÷ - ÁÖ¹Î¹øÈ£ (= ÀÎÁ¶Å°),  È¸»ç¿ø - »ç¿ø¹øÈ£
 
--- I. ì»¬ëŸ¼ë ˆë²¨ ì •ì˜
-ì»¬ëŸ¼ëª… ë°ì´í„° íƒ€ìž… PRIMARY KEY  : ì•½ì‹ --> SYS_C008XXX 
-ì»¬ëŸ¼ëª… ë°ì´í„° íƒ€ìž… CONSTRAINT ì œì•½ì¡°ê±´ëª… PRIMARY KEY --> í…Œì´ë¸”ëª…_ì»¬ëŸ¼ëª…_ì œì•½ì¡°ê±´ì•½ì–´
+-- I. ÄÃ·³·¹º§ Á¤ÀÇ
+ÄÃ·³¸í µ¥ÀÌÅÍ Å¸ÀÔ PRIMARY KEY  : ¾à½Ä --> SYS_C008XXX 
+ÄÃ·³¸í µ¥ÀÌÅÍ Å¸ÀÔ CONSTRAINT Á¦¾àÁ¶°Ç¸í PRIMARY KEY --> Å×ÀÌºí¸í_ÄÃ·³¸í_Á¦¾àÁ¶°Ç¾à¾î
 
--- II.í…Œì´ë¸”ë ˆë²¨ ì •ì˜
-CONSTRAINT í…Œì´ë¸”ëª…_ì»¬ëŸ¼ëª…_ì œì•½ì¡°ê±´ì•½ì–´ PRIMARY KEY (ì»¬ëŸ¼ëª…)
+-- II.Å×ÀÌºí·¹º§ Á¤ÀÇ
+CONSTRAINT Å×ÀÌºí¸í_ÄÃ·³¸í_Á¦¾àÁ¶°Ç¾à¾î PRIMARY KEY (ÄÃ·³¸í)
 
-[ì˜ˆì œ10-21] dept_test í…Œì´ë¸”ì„ ìƒì„±í•˜ê³  dept_id, dept_name ì»¬ëŸ¼ ê°ê° ìˆ«ìž 4ë°”ì´íŠ¸, ê°€ë³€ë¬¸ìž 30ë°”ì´íŠ¸ì˜
-êµ¬ì¡°ë¥¼ ê°–ê²Œí•˜ë˜ dept_nameì€ NULLì„ í—ˆìš©í•˜ì§€ ì•Šê³ , dept_idë¥¼ ê¸°ë³¸í‚¤ë¡œ ì§€ì •í•˜ëŠ” ì¿¼ë¦¬ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤
+[¿¹Á¦10-21] dept_test Å×ÀÌºíÀ» »ý¼ºÇÏ°í dept_id, dept_name ÄÃ·³ °¢°¢ ¼ýÀÚ 4¹ÙÀÌÆ®, °¡º¯¹®ÀÚ 30¹ÙÀÌÆ®ÀÇ
+±¸Á¶¸¦ °®°ÔÇÏµÇ dept_nameÀº NULLÀ» Çã¿ëÇÏÁö ¾Ê°í, dept_id¸¦ ±âº»Å°·Î ÁöÁ¤ÇÏ´Â Äõ¸®¸¦ ÀÛ¼ºÇÏ½Ã¿À
 
 CREATE TABLE dept_test (
     dept_id NUMBER(4),
     dept_name VARCHAR2(30) NOT NULL,
-    CONSTRAINT dept_test_dept_id_pk PRIMARY KEY (dept_id) -- dept_id ì»¬ëŸ¼ì— ìœ ì¼ì„±ì„ ë§Œì¡±í•˜ê³  NULLì•„ë‹Œ ê°’ì„ ì €ìž¥ì„ ê°•ì œí•˜ëŠ” ì œì•½ì¡°ê±´
+    CONSTRAINT dept_test_dept_id_pk PRIMARY KEY (dept_id) -- dept_id ÄÃ·³¿¡ À¯ÀÏ¼ºÀ» ¸¸Á·ÇÏ°í NULL¾Æ´Ñ °ªÀ» ÀúÀåÀ» °­Á¦ÇÏ´Â Á¦¾àÁ¶°Ç
 );
 
 SELECT  constraint_name, constraint_type
 FROM    user_constraints
 WHERE   table_name='DEPT_TEST';
 
-[ì˜ˆì œ10-22] ë¶€ì„œì½”ë“œ 10, ë¶€ì„œëª…ì€ ì˜ì—…ë¶€ì¸ ë¶€ì„œ ë°ì´í„°ë¥¼ ìž…ë ¥í•˜ì‹œì˜¤
+[¿¹Á¦10-22] ºÎ¼­ÄÚµå 10, ºÎ¼­¸íÀº ¿µ¾÷ºÎÀÎ ºÎ¼­ µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇÏ½Ã¿À
 INSERT INTO dept_test (dept_id, dept_name)
-VALUES (10, 'ì˜ì—…ë¶€');
+VALUES (10, '¿µ¾÷ºÎ');
 
 INSERT INTO dept_test (dept_id, dept_name)
-VALUES (10, 'ê°œë°œë¶€');
+VALUES (10, '°³¹ßºÎ');
 
 INSERT INTO dept_test (dept_id, dept_name)
-VALUES (NULL, 'ê°œë°œë¶€');
+VALUES (NULL, '°³¹ßºÎ');
 
--- í…Œì´ë¸” ìƒì„± í›„ PK (ì¶”ê°€)ì§€ì •
--- ì¼ë‹¨ ë¨¼ì € ì œê±°
+-- Å×ÀÌºí »ý¼º ÈÄ PK (Ãß°¡)ÁöÁ¤
+-- ÀÏ´Ü ¸ÕÀú Á¦°Å
 ALTER TABLE dept_test
-DROP CONSTRAINT DEPT_TEST_DEPT_ID_PK; -- Table DEPT_TESTì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+DROP CONSTRAINT DEPT_TEST_DEPT_ID_PK; -- Table DEPT_TESTÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù.
 
--- ë‹¤ì‹œ ì¶”ê°€ì§€ì •
+-- ´Ù½Ã Ãß°¡ÁöÁ¤
 ALTER TABLE dept_test
-ADD CONSTRAINT DEPT_TEST_DEPT_ID_PK PRIMARY KEY (dept_id); -- Table DEPT_TESTì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+ADD CONSTRAINT DEPT_TEST_DEPT_ID_PK PRIMARY KEY (dept_id); -- Table DEPT_TESTÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù.
 
 SELECT *
 FROM    dept_test;
 
 INSERT INTO dept_test
-VALUES (20, 'ê°œë°œë¶€');
+VALUES (20, '°³¹ßºÎ');
 
 UPDATE dept_test
 SET dept_id = 10
-WHERE   dept_name = 'ê°œë°œë¶€'; -- ORA-00001: ë¬´ê²°ì„± ì œì•½ ì¡°ê±´(HANUL.DEPT_TEST_DEPT_ID_PK)ì— ìœ„ë°°ë©ë‹ˆë‹¤
+WHERE   dept_name = '°³¹ßºÎ'; -- ORA-00001: ¹«°á¼º Á¦¾à Á¶°Ç(HANUL.DEPT_TEST_DEPT_ID_PK)¿¡ À§¹èµË´Ï´Ù
 
 INSERT INTO dept_test
-VALUES (20, 'íŒë§¤ë¶€');  --ORA-00001: ë¬´ê²°ì„± ì œì•½ ì¡°ê±´(HANUL.DEPT_TEST_DEPT_ID_PK)ì— ìœ„ë°°ë©ë‹ˆë‹¤
+VALUES (20, 'ÆÇ¸ÅºÎ');  --ORA-00001: ¹«°á¼º Á¦¾à Á¶°Ç(HANUL.DEPT_TEST_DEPT_ID_PK)¿¡ À§¹èµË´Ï´Ù
 
 
 
--- 10.5 FOREIGN KEY ì œì•½ì¡°ê±´ - ì™¸ëž˜í‚¤ (p.85)
--- ë¶€ëª¨ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì„ ì°¸ì¡°í•˜ëŠ” ìžì‹ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì—, ë°ì´í„°ì˜ ë¬´ê²°ì„±ì„ ë³´ìž¥í•˜ê¸° ìœ„í•´ ì§€ì •í•˜ëŠ” ì œì•½ì¡°ê±´
--- NULL í—ˆìš© <---> UNIQUE : ì¤‘ë³µë°©ì§€, NULL í—ˆìš©
--- ì°¸ì¡°í‚¤, ì™¸ëž˜í‚¤, FK
--- ì»¬ëŸ¼ë ˆë²¨     â˜…ë³µí•©í‚¤â˜…ë¥¼ ìƒì„±í•  ìˆ˜ ìžˆë‹¤.
--- ì»¬ëŸ¼ëª… ë°ì´í„° íƒ€ìž… REFERENCES ë¶€ëª¨í…Œì´ë¸” (ì°¸ì¡°ë˜ëŠ” ì»¬ëŸ¼ëª…)
--- ì»¬ëŸ¼ëª… ë°ì´í„° íƒ€ìž… CONSTRAINT ì œì•½ì¡°ê±´ëª… REFERNECES ë¶€ëª¨í…Œì´ë¸” (ì°¸ì¡°ë˜ëŠ” ì»¬ëŸ¼ëª…)
+-- 10.5 FOREIGN KEY Á¦¾àÁ¶°Ç - ¿Ü·¡Å° (p.85)
+-- ºÎ¸ð Å×ÀÌºíÀÇ ÄÃ·³À» ÂüÁ¶ÇÏ´Â ÀÚ½Ä Å×ÀÌºíÀÇ ÄÃ·³¿¡, µ¥ÀÌÅÍÀÇ ¹«°á¼ºÀ» º¸ÀåÇÏ±â À§ÇØ ÁöÁ¤ÇÏ´Â Á¦¾àÁ¶°Ç
+-- NULL Çã¿ë <---> UNIQUE : Áßº¹¹æÁö, NULL Çã¿ë
+-- ÂüÁ¶Å°, ¿Ü·¡Å°, FK
+-- ÄÃ·³·¹º§     ¡Úº¹ÇÕÅ°¡Ú¸¦ »ý¼ºÇÒ ¼ö ÀÖ´Ù.
+-- ÄÃ·³¸í µ¥ÀÌÅÍ Å¸ÀÔ REFERENCES ºÎ¸ðÅ×ÀÌºí (ÂüÁ¶µÇ´Â ÄÃ·³¸í)
+-- ÄÃ·³¸í µ¥ÀÌÅÍ Å¸ÀÔ CONSTRAINT Á¦¾àÁ¶°Ç¸í REFERNECES ºÎ¸ðÅ×ÀÌºí (ÂüÁ¶µÇ´Â ÄÃ·³¸í)
 
--- í…Œì´ë¸”ë ˆë²¨ì—ì„œ ì •ì˜
--- CONSTRAINT í…Œì´ë¸”ëª…_ì œì•½ì¡°ê±´ëª…_ì œì•½ì¡°ê±´ì•½ì–´ FOREIGN KEY (ì°¸ì¡°í•˜ëŠ” ì»¬ëŸ¼ëª…) REFERENCES ë¶€ëª¨í…Œì´ë¸” (ì°¸ì¡°ë˜ëŠ” ì»¬ëŸ¼ëª…)
--- í…Œì´ë¸”ê³¼ í…Œì´ë¸”ì˜ ê´€ê³„ì— ë”°ë¼ì„œ,...
--- ì‚¬ì› ì •ë³´ í…Œì´ë¸” <---> ë¶€ì„œ ì •ë³´ í…Œì´ë¸”
--- ì‚¬ì›ì€ ë¶€ì„œì— ì†Œì†ëœë‹¤(=ê´€ê³„) N : 1     [1:ë‹¤] ê´€ê³„ : RDBMSì—ì„œ â˜…ê°€ìž¥ ê¸°ë³¸ì ì¸!
--- ë¶€ì„œëŠ” ì‚¬ì›ì„ í¬í•¨í•œë‹¤(=ê´€ê³„  1 : N     [ë‹¤:ë‹¤], [M:N] ê´€ê³„ ==> ê´€ê³„í•´ì†Œ 
--- HR ìŠ¤í‚¤ë§ˆ ==> ìž‘ì€ ê·œëª¨ì˜ ë°ì´í„°ë² ì´ìŠ¤ ==> ê¸°ì´ˆì— ì¶©ì‹¤í•œ í…Œì´ë¸” ì„¤ê³„
+-- Å×ÀÌºí·¹º§¿¡¼­ Á¤ÀÇ
+-- CONSTRAINT Å×ÀÌºí¸í_Á¦¾àÁ¶°Ç¸í_Á¦¾àÁ¶°Ç¾à¾î FOREIGN KEY (ÂüÁ¶ÇÏ´Â ÄÃ·³¸í) REFERENCES ºÎ¸ðÅ×ÀÌºí (ÂüÁ¶µÇ´Â ÄÃ·³¸í)
+-- Å×ÀÌºí°ú Å×ÀÌºíÀÇ °ü°è¿¡ µû¶ó¼­,...
+-- »ç¿ø Á¤º¸ Å×ÀÌºí <---> ºÎ¼­ Á¤º¸ Å×ÀÌºí
+-- »ç¿øÀº ºÎ¼­¿¡ ¼Ò¼ÓµÈ´Ù(=°ü°è) N : 1     [1:´Ù] °ü°è : RDBMS¿¡¼­ ¡Ú°¡Àå ±âº»ÀûÀÎ!
+-- ºÎ¼­´Â »ç¿øÀ» Æ÷ÇÔÇÑ´Ù(=°ü°è  1 : N     [´Ù:´Ù], [M:N] °ü°è ==> °ü°èÇØ¼Ò 
+-- HR ½ºÅ°¸¶ ==> ÀÛÀº ±Ô¸ðÀÇ µ¥ÀÌÅÍº£ÀÌ½º ==> ±âÃÊ¿¡ Ãæ½ÇÇÑ Å×ÀÌºí ¼³°è
 
--- ì‚¬ì›ì •ë³´  ===> employees (í…Œì´ë¸”)
--- ì‚¬ë²ˆ(PK),ì´ë¦„, ê¸‰ì—¬,ì´ë©”ì¼, ë¶€ì„œì½”ë“œ(FK) ==> first_name, employee_id,salary, email (ì»¬ëŸ¼)
+-- »ç¿øÁ¤º¸  ===> employees (Å×ÀÌºí)
+-- »ç¹ø(PK),ÀÌ¸§, ±Þ¿©,ÀÌ¸ÞÀÏ, ºÎ¼­ÄÚµå(FK) ==> first_name, employee_id,salary, email (ÄÃ·³)
 
--- ë¶€ì„œì •ë³´  ===> departments (í…Œì´ë¸”)
--- ë¶€ì„œì½”ë“œ(PK), ë¶€ì„œëª…, ìœ„ì¹˜ì½”ë“œ (ì»¬ëŸ¼)
+-- ºÎ¼­Á¤º¸  ===> departments (Å×ÀÌºí)
+-- ºÎ¼­ÄÚµå(PK), ºÎ¼­¸í, À§Ä¡ÄÚµå (ÄÃ·³)
 
--- ë°ì´í„° ëª¨ë¸ë§ : ëª¨ë¸ëŸ¬ ==> í…Œì´ë¸” ì„¤ê³„, ì»¬ëŸ¼, ì œì•½ì¡°ê±´ ì„¤ì •
+-- µ¥ÀÌÅÍ ¸ðµ¨¸µ : ¸ðµ¨·¯ ==> Å×ÀÌºí ¼³°è, ÄÃ·³, Á¦¾àÁ¶°Ç ¼³Á¤
 
--- ì‚¬ì›í…Œì´ë¸”,
--- ë¶€ì„œí…Œì´ë¸”     <---> ì–´ë–¤ íšŒì‚¬ì˜ ì—…ë¬´ë¥¼ íŒŒì•…, ë¶„ì„ --> ë°ì´í„°ë² ì´ìŠ¤ ì‹œìŠ¤í…œ êµ¬ì¶• : ê°œë…ì„¤ê³„->ë…¼ë¦¬ì„¤ê³„->ë¬¼ë¦¬ì„¤ê³„
--- ê·¸ë°–ì—..
+-- »ç¿øÅ×ÀÌºí,
+-- ºÎ¼­Å×ÀÌºí     <---> ¾î¶² È¸»çÀÇ ¾÷¹«¸¦ ÆÄ¾Ç, ºÐ¼® --> µ¥ÀÌÅÍº£ÀÌ½º ½Ã½ºÅÛ ±¸Ãà : °³³ä¼³°è->³í¸®¼³°è->¹°¸®¼³°è
+-- ±×¹Û¿¡..
 
 
--- ì‡¼í•‘ëª° êµ¬ì¶• : ì‡¼í•‘ë¬¼ ì—…ë¬´ íŒŒì•… (ê³ ê°-ìƒí’ˆ ì£¼ë¬¸,ê²°ì œ,   íšŒì‚¬-ìƒí’ˆ í¬ìž¥, ë°œì†¡..)
--- ê°œë…ì„¤ê³„ : ì—…ë¬´ ê´€ë ¨ ì¤‘ìš” í‚¤ì›Œë“œë¥¼ ë„ì¶œ ==>  ì—”í„°í‹°(=ê°œì²´), ì»¬ëŸ¼(=íŠ¹ì„±) ....
--- ë…¼ë¦¬ì„¤ê³„ : Entity Relational Diagram (ERD) ==> ê·¸ë¦¼ìœ¼ë¡œ ê°œì²´,íŠ¹ì„±, ê´€ê³„ë¥¼ í‘œì‹œí•˜ëŠ” ê³¼ì •
--- ë¬¼ë¦¬ì„¤ê³„ : CREATE TABLE ~ ALTER TABLE~ INSERT INTO ~
+-- ¼îÇÎ¸ô ±¸Ãà : ¼îÇÎ¹° ¾÷¹« ÆÄ¾Ç (°í°´-»óÇ° ÁÖ¹®,°áÁ¦,   È¸»ç-»óÇ° Æ÷Àå, ¹ß¼Û..)
+-- °³³ä¼³°è : ¾÷¹« °ü·Ã Áß¿ä Å°¿öµå¸¦ µµÃâ ==>  ¿£ÅÍÆ¼(=°³Ã¼), ÄÃ·³(=Æ¯¼º) ....
+-- ³í¸®¼³°è : Entity Relational Diagram (ERD) ==> ±×¸²À¸·Î °³Ã¼,Æ¯¼º, °ü°è¸¦ Ç¥½ÃÇÏ´Â °úÁ¤
+-- ¹°¸®¼³°è : CREATE TABLE ~ ALTER TABLE~ INSERT INTO ~
 
--- (ì‚¬ì› - ë¶€ì„œ) I.ê°œë…ì„¤ê³„
--- ê³ ê° ì •ë³´ë¥¼ ë‹´ëŠ” í…Œì´ë¸” : CUSTOMERS (ê³ ê°ID, ê³ ê°ëª…, ì—°ë½ì²˜...)
--- ìƒí’ˆ ì •ë³´ë¥¼ ë‹´ëŠ” í…Œì´ë¸” : ITEMS (ìƒí’ˆID, ìƒí’ˆëª…, ê°€ê²©)
+-- (»ç¿ø - ºÎ¼­) I.°³³ä¼³°è
+-- °í°´ Á¤º¸¸¦ ´ã´Â Å×ÀÌºí : CUSTOMERS (°í°´ID, °í°´¸í, ¿¬¶ôÃ³...)
+-- »óÇ° Á¤º¸¸¦ ´ã´Â Å×ÀÌºí : ITEMS (»óÇ°ID, »óÇ°¸í, °¡°Ý)
 
--- II. ë…¼ë¦¬ì„¤ê³„         <----> ERD (ë‹¤ì´ì–´ê·¸ëž¨, ë„ì‹í™”)
--- ê³ ê°ì •ë³´
+-- II. ³í¸®¼³°è         <----> ERD (´ÙÀÌ¾î±×·¥, µµ½ÄÈ­)
+-- °í°´Á¤º¸
 ------------------------------------
-ê³ ê°ID    ê³ ê°ëª…     ì „í™”ë²ˆí˜¸ ì´ë©”ì¼ ì§‘ì „í™” ì‚¬ë¬´ì‹¤ì „í™” ..
+°í°´ID    °í°´¸í     ÀüÈ­¹øÈ£ ÀÌ¸ÞÀÏ ÁýÀüÈ­ »ç¹«½ÇÀüÈ­ ..
  PK       NN            
 NUMBER   VARCHAR2     VARCHAR(11) 
 ------------------------------------
-0001     í™ê¸¸ë™       010-1234-5645
-0002     ì´ê¸¸ë™     
-0003     ë°•ê¸¸ë™
+0001     È«±æµ¿       010-1234-5645
+0002     ÀÌ±æµ¿     
+0003     ¹Ú±æµ¿
 
--- ìƒí’ˆì •ë³´
+-- »óÇ°Á¤º¸
 -----------------------------------------------------------
-ìƒí’ˆID   ë¶„ë¥˜     ì›ì‚°ì§€    ì œì¡°ì‚¬/ìƒì‚°ìž   ìƒì‚°ì¼ìž  ...
+»óÇ°ID   ºÐ·ù     ¿ø»êÁö    Á¦Á¶»ç/»ý»êÀÚ   »ý»êÀÏÀÚ  ...
   PK     NN
 NUMBER   VARCHAR2   VARCHAR2   VARCHAR2     DATE  
 -----------------------------------------------------------
-0001    ìž¡í™”(D)    í•œêµ­      Hì‚¬
-0002    ì‹í’ˆ(F)    íƒœêµ­      Yì‚¬
+0001    ÀâÈ­(D)    ÇÑ±¹      H»ç
+0002    ½ÄÇ°(F)    ÅÂ±¹      Y»ç
 0003
 
 
--- III.ë¬¼ë¦¬ì„¤ê³„ : SQL
+-- III.¹°¸®¼³°è : SQL
 
 CREATE TABLE customers (
     id  NUMBER(4),
@@ -408,43 +408,43 @@ CREATE TABLE items (
     CONSTRAINT items_p_id_pk PRIMARY KEY (p_id)
 )
 
--- DBA, ë°ì´í„° ëª¨ë¸ëŸ¬ : í˜„ìž¥ì— ê±°ì˜ ì—†ë‹¤ ==> ëª¸ê°’ ë†’ë‹¤ ==> ì¸ê³µì§€ëŠ¥ í™œì„±í™” ==>
+-- DBA, µ¥ÀÌÅÍ ¸ðµ¨·¯ : ÇöÀå¿¡ °ÅÀÇ ¾ø´Ù ==> ¸ö°ª ³ô´Ù ==> ÀÎ°øÁö´É È°¼ºÈ­ ==>
 
 
 
-[ì˜ˆì œ10-26] emp_test : employees í…Œì´ë¸”ì„ ìƒì„±í•˜ê³ , ì œì•½ì¡°ê±´ ê±°ì‹œì˜¤
+[¿¹Á¦10-26] emp_test : employees Å×ÀÌºíÀ» »ý¼ºÇÏ°í, Á¦¾àÁ¶°Ç °Å½Ã¿À
 
 CREATE TABLE emp_test (       
-    emp_id NUMBER(4) PRIMARY KEY, -- ì¤‘ë³µx, NULL í—ˆìš©! : ìœ ì¼ì„± ë³´ìž¥
-    ename VARCHAR2(30) NOT NULL, -- NULL í—ˆìš©í•˜ì§€ ì•ŠìŒ
+    emp_id NUMBER(4) PRIMARY KEY, -- Áßº¹x, NULL Çã¿ë! : À¯ÀÏ¼º º¸Àå
+    ename VARCHAR2(30) NOT NULL, -- NULL Çã¿ëÇÏÁö ¾ÊÀ½
     dept_id NUMBER(4),
     job_id VARCHAR2(10),
     CONSTRAINT emp_test_dept_id_fk FOREIGN KEY (dept_id) REFERENCES dept_test (dept_id)    
-); -- Table EMP_TESTì´(ê°€) ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.
+); -- Table EMP_TESTÀÌ(°¡) »ý¼ºµÇ¾ú½À´Ï´Ù.
 
--- hanul ê³„ì •ì˜ ê¶Œí•œ(ROLE)ì´ HR ê³„ì •ì— ìžˆëŠ” í…Œì´ë¸”ì— ì ‘ê·¼í•  ìˆ˜ ì—†ëŠ” ìƒíƒœë¼ë©´, ì—ëŸ¬ê°€ ë°œìƒ
--- ê¶Œí•œì„ ë¶€ì—¬(DCL)ê°€ í•„ìš”í•¨.
+-- hanul °èÁ¤ÀÇ ±ÇÇÑ(ROLE)ÀÌ HR °èÁ¤¿¡ ÀÖ´Â Å×ÀÌºí¿¡ Á¢±ÙÇÒ ¼ö ¾ø´Â »óÅÂ¶ó¸é, ¿¡·¯°¡ ¹ß»ý
+-- ±ÇÇÑÀ» ºÎ¿©(DCL)°¡ ÇÊ¿äÇÔ.
 -- CONSTRAINT emp_test_dept_id_fk FOREIGN KEY (dept_id) REFERENCES HR.departments (department_id)
 
 -- dept_test [dept_id, dept_name]
 SELECT *
-FROM    dept_test; -- 10, 20ë²ˆ ë¶€ì„œê°€ ì¡´ìž¬ <--> ì‚¬ì› ë“±ë¡ì‹œ ë¶€ì„œì½”ë“œëŠ” 10ì´ë‚˜ 20ì´ì–´ì•¼ ë“±ë¡ì´ ë¨.
+FROM    dept_test; -- 10, 20¹ø ºÎ¼­°¡ Á¸Àç <--> »ç¿ø µî·Ï½Ã ºÎ¼­ÄÚµå´Â 10ÀÌ³ª 20ÀÌ¾î¾ß µî·ÏÀÌ µÊ.
 
-[ì˜ˆì œ10-27]
+[¿¹Á¦10-27]
 INSERT INTO emp_test (emp_id, ename, dept_id, job_id)
 VALUES (100, 'King', 10, 'ST_MAN'); -- ok
 
 INSERT INTO emp_test (emp_id, ename, dept_id, job_id)
-VALUES (101, 'Kong', 30, 'AC_MG'); -- ë¶€ì„œí…Œì´ë¸” 30ë²ˆ ë¶€ì„œëŠ” ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë°, ìž…ë ¥ ì‹œë„
+VALUES (101, 'Kong', 30, 'AC_MG'); -- ºÎ¼­Å×ÀÌºí 30¹ø ºÎ¼­´Â Á¸ÀçÇÏÁö ¾Ê´Âµ¥, ÀÔ·Â ½Ãµµ
 
--- ORA-02291: ë¬´ê²°ì„± ì œì•½ì¡°ê±´(HANUL.EMP_TEST_DEPT_ID_FK)ì´ ìœ„ë°°ë˜ì—ˆìŠµë‹ˆë‹¤- ë¶€ëª¨ í‚¤ê°€ ì—†ìŠµë‹ˆë‹¤
--- 30ë²ˆ ë¶€ì„œì •ë³´ë¥¼ dept_test ì— ìž…ë ¥ í›„ ì‚¬ì›ì •ë³´ë¥¼ ìž¬ìž…ë ¥ ==> ì„±ê³µ
+-- ORA-02291: ¹«°á¼º Á¦¾àÁ¶°Ç(HANUL.EMP_TEST_DEPT_ID_FK)ÀÌ À§¹èµÇ¾ú½À´Ï´Ù- ºÎ¸ð Å°°¡ ¾ø½À´Ï´Ù
+-- 30¹ø ºÎ¼­Á¤º¸¸¦ dept_test ¿¡ ÀÔ·Â ÈÄ »ç¿øÁ¤º¸¸¦ ÀçÀÔ·Â ==> ¼º°ø
 INSERT INTO dept_test (dept_id, dept_name)
-VALUES (30, 'íŒë§¤ë¶€');
+VALUES (30, 'ÆÇ¸ÅºÎ');
 
--- ë‹¤ì‹œ ì‚¬ì›ì •ë³´ë¥¼ ìž…ë ¥
+-- ´Ù½Ã »ç¿øÁ¤º¸¸¦ ÀÔ·Â
 INSERT INTO emp_test (emp_id, ename, dept_id, job_id)
-VALUES (101, 'Kong', 30, 'AC_MG'); -- ë¶€ì„œí…Œì´ë¸” 30ë²ˆ ë¶€ì„œê°€ ì¡´ìž¬í•œ ìƒíƒœì—ì„œ ìž…ë ¥ì‹œë„
+VALUES (101, 'Kong', 30, 'AC_MG'); -- ºÎ¼­Å×ÀÌºí 30¹ø ºÎ¼­°¡ Á¸ÀçÇÑ »óÅÂ¿¡¼­ ÀÔ·Â½Ãµµ
 
 INSERT INTO emp_test (emp_id, ename, dept_id, job_id)
 VALUES (102, 'Jack', 50, 'ST_CLERK');
@@ -453,50 +453,50 @@ SELECT *
 FROM    emp_test;
 
 
--- í…Œì´ë¸” ìƒì„± í›„ FK ì¶”ê°€ì§€ì •
--- ì¼ë‹¨ ë¨¼ì € ì§€ìš°ìž ==> ì œì•½ ì¡°ê±´ ì´ë¦„ì„ ì•Œìž
+-- Å×ÀÌºí »ý¼º ÈÄ FK Ãß°¡ÁöÁ¤
+-- ÀÏ´Ü ¸ÕÀú Áö¿ìÀÚ ==> Á¦¾à Á¶°Ç ÀÌ¸§À» ¾ËÀÚ
 SELECT constraint_name, constraint_type
 FROM    user_constraints
 WHERE   table_name = 'EMP_TEST';
 
--- EMP_TEST_DEPT_ID_FK ì„ ì‚­ì œ
+-- EMP_TEST_DEPT_ID_FK À» »èÁ¦
 ALTER TABLE emp_test
-DROP CONSTRAINT EMP_TEST_DEPT_ID_FK; -- Table EMP_TESTì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+DROP CONSTRAINT EMP_TEST_DEPT_ID_FK; -- Table EMP_TESTÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù.
 
--- ë‹¤ì‹œ ì§€ì • : ì›ëž˜ ì—†ì—ˆë‹¤~ ê°€ì •í•˜ê³  (ì‹œí—˜ìš©)
+-- ´Ù½Ã ÁöÁ¤ : ¿ø·¡ ¾ø¾ú´Ù~ °¡Á¤ÇÏ°í (½ÃÇè¿ë)
 ALTER TABLE emp_test
 ADD CONSTRAINT emp_test_dept_id_fk FOREIGN KEY (dept_id) REFERENCES dept_test (dept_id);
 
--- UPDATE í•´ë´…ì‹œë‹¤
+-- UPDATE ÇØº¾½Ã´Ù
 SELECT *
 FROM    emp_test;
 
 UPDATE emp_test
 SET dept_id = 50
-WHERE   emp_id = 101;  -- ORA-02291: ë¬´ê²°ì„± ì œì•½ì¡°ê±´(HANUL.EMP_TEST_DEPT_ID_FK)ì´ ìœ„ë°°ë˜ì—ˆìŠµë‹ˆë‹¤- ë¶€ëª¨ í‚¤ê°€ ì—†ìŠµë‹ˆë‹¤
+WHERE   emp_id = 101;  -- ORA-02291: ¹«°á¼º Á¦¾àÁ¶°Ç(HANUL.EMP_TEST_DEPT_ID_FK)ÀÌ À§¹èµÇ¾ú½À´Ï´Ù- ºÎ¸ð Å°°¡ ¾ø½À´Ï´Ù
 
 
 
--- ê³„ì • ê¶Œí•œ í™•ì¸
+-- °èÁ¤ ±ÇÇÑ È®ÀÎ
 
 SELECT *
 FROM    dict
 WHERE table_name LIKE '%PRIVS%';
 
 SELECT *
-FROM    USER_ROLE_PRIVS; -- ì‚¬ìš©ìž ê³„ì • ë¡¤_ê¶Œí•œ
+FROM    USER_ROLE_PRIVS; -- »ç¿ëÀÚ °èÁ¤ ·Ñ_±ÇÇÑ
 
 SELECT *
-FROM    ALL_TAB_PRIVS -- ì‚¬ìš©ìž ê³„ì • ë¡¤_ê¶Œí•œ
+FROM    ALL_TAB_PRIVS -- »ç¿ëÀÚ °èÁ¤ ·Ñ_±ÇÇÑ
 WHERE   grantee='HANUL';
 
 
 
 -- DEFAULT
--- ì»¬ëŸ¼ ë‹¨ìœ„ë¡œ ì§€ì •ë˜ëŠ” ì†ì„±, ë°ì´í„°ë¥¼ ìž…ë ¥í•˜ì§€ ì•Šì•„ë„ ì§€ì •ëœ ê°’ì´ ê¸°ë³¸ ìž…ë ¥ë˜ë„ë¡ í•œë‹¤.
--- ì œì•½ì¡°ê±´ì€ ì•„ë‹ˆì§€ë§Œ, ì»¬ëŸ¼ ë ˆë²¨ì—ì„œ ìž‘ì„±í•œë‹¤.
+-- ÄÃ·³ ´ÜÀ§·Î ÁöÁ¤µÇ´Â ¼Ó¼º, µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇÏÁö ¾Ê¾Æµµ ÁöÁ¤µÈ °ªÀÌ ±âº» ÀÔ·ÂµÇµµ·Ï ÇÑ´Ù.
+-- Á¦¾àÁ¶°ÇÀº ¾Æ´ÏÁö¸¸, ÄÃ·³ ·¹º§¿¡¼­ ÀÛ¼ºÇÑ´Ù.
 
-[ì˜ˆì œ10-30]
+[¿¹Á¦10-30]
 CREATE TABLE default_test (
     name    VARCHAR2(10) NOT NULL,
     hire_date DATE DEFAULT SYSDATE NOT NULL,
@@ -504,11 +504,11 @@ CREATE TABLE default_test (
 );
 
 INSERT INTO default_test (name, hire_date, salary)
-VALUES ('í™ê¸¸ë™',TO_DATE('2023-05-22', 'YYYY-MM-DD'), 3000);
+VALUES ('È«±æµ¿',TO_DATE('2023-05-22', 'YYYY-MM-DD'), 3000);
 
 
 INSERT INTO default_test (name)
-VALUES ('ê¹€ê¸¸ë™'); -- ì˜¤ëŠ˜ë‚ ìž, 2500 ê¸‰ì—¬
+VALUES ('±è±æµ¿'); -- ¿À´Ã³¯ÀÚ, 2500 ±Þ¿©
 
 SELECT *
 FROM    default_test;
